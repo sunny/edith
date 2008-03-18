@@ -4,10 +4,10 @@
 <head>
   <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
   <title><?php echo h($page->name()); ?></title>
-  <link rel="shortcut icon" type="image/png" href="<?php echo EDITH_URI ?>/includes/icon.png" />
-  <link type="text/css" rel="stylesheet" href="<?php echo EDITH_URI ?>/includes/style.css" />
-  <script type="text/javascript" src="<?php echo EDITH_URI ?>/includes/prototype.js"></script>
-  <script type="text/javascript" src="<?php echo EDITH_URI ?>/includes/script.js"></script>
+  <link rel="shortcut icon" type="image/png" href="<?php echo EDITH_URI ?>/public/icon.png" />
+  <link type="text/css" rel="stylesheet" href="<?php echo EDITH_URI ?>/public/style.css" />
+  <script type="text/javascript" src="<?php echo EDITH_URI ?>/public/prototype.js"></script>
+  <script type="text/javascript" src="<?php echo EDITH_URI ?>/public/script.js"></script>
 </head>
 <body>
   <form method="post" action="<?php echo EDITH_URI ?>/" id="save">

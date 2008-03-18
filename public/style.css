@@ -1,8 +1,10 @@
 * {
   margin:0;
-  padding:0;}
+  padding:0;
+}
 html, body {
-  height:100%;}
+  height:100%;
+}
 textarea {
   font:1.1em Lucida Grande, Helvetica, Arial, sans-serif;
   position:absolute;
@@ -10,9 +12,11 @@ textarea {
   margin:1%;
   width:98%;
   height:97%;
-  border:0;}
+  border:0;
+}
 #submit {
   z-index:2;
   position:absolute;
   bottom:1ex;
-  right:1ex;}
+  right:1ex;
+}

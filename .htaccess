@@ -1,0 +1,5 @@
+# Good-looking URIs for everything that doesn't start with index.php or contains slashes.
+RewriteEngine on
+RewriteBase /edit/
+RewriteRule ^index\.php $0 [L]
+RewriteRule ^([^/]*)$ index.php?name=$1
