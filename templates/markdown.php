@@ -5,11 +5,12 @@
 <head>
   <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
   <title><?php echo h(ucfirst($page->name)); ?></title>
-  <link rel="shortcut icon" type="image/png" href="icon.png" />
+  <link rel="shortcut icon" type="image/png" href="<?php echo EDITH_PATH ?>/includes/icon.png" />
   <style type="text/css">
     body {
       padding:1em;
-      font:1em Lucida Grande, Helvetica, Arial, sans-serif;}
+      font:1em Lucida Grande, Helvetica, Arial, sans-serif;
+    }
   </style>
 </head>
 <body>
