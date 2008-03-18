@@ -14,8 +14,10 @@ Usage
 Configuration
 -------------
 
-You'll need some flavour of PHP and some way to rewrite URIs like this:
-    ^([^/]*)$   ->  index.php?name=$1
+    $ chmod +w data/
+
+You'll need some way to rewrite URIs like this: ^([^/]*)$ -> index.php?name=$1
+(or edit the example .htaccess file).
 
 Licence
 ------
