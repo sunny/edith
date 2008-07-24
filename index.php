@@ -19,7 +19,7 @@ switch (strtolower($_SERVER['REQUEST_METHOD'])) {
   case 'post': case 'put':
     $page->text = request_var('text');
     $page->save();
-    if ($_SERVER['HTTP_X_REQUESTED_WITH'] != 'XMLHttpRequest')
+    if (!is_xhr())
       header('Location: ' . $_SERVER['HTTP_REFERER']);
     exit('Saved successfully!');
 
