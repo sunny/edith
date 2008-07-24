@@ -26,7 +26,7 @@ switch (strtolower($_SERVER['REQUEST_METHOD'])) {
   // delete page
   case 'delete':
     $page->delete();
-    exit('Saved successfully!');
+    exit;
 
   // show page
   case 'get':
