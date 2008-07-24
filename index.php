@@ -4,41 +4,38 @@ require 'config.php';
 require 'lib/helpers.php';
 require 'lib/page.class.php';
 
-// get page name
-$requestname = request_var('name');
-$pagename = remove_from_end(remove_from_end($requestname, '.html'), '.txt');
-$page = new Page($pagename);
+// get page
+$requested_name = request_var('name');
+$page_name = preg_replace('#\.(html|txt)$#', '', $requested_name);
+$page = new Page($page_name);
 if (!$page->has_safe_name()) {
   header('HTTP/1.0 404 Not Found');
   exit('The page name can only contain dashes, dots and alphanumerical characters.');
 }
 
-// create or save page
-if ($_SERVER['REQUEST_METHOD'] == 'POST' or $_SERVER['REQUEST_METHOD'] == 'PUT') {
-  $created = $page->is_new();
-  $page->text = request_var('text');
-  $page->save();
-  if ($created)
-    header('HTTP/1.0 201 Created');
-  if ($_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest')
+switch (strtolower($_SERVER['REQUEST_METHOD'])) {
+
+  // create or save page
+  case 'post': case 'put':
+    $page->text = request_var('text');
+    $page->save();
+    if ($_SERVER['HTTP_X_REQUESTED_WITH'] != 'XMLHttpRequest')
+      header('Location: ' . $_SERVER['HTTP_REFERER']);
     exit('Saved successfully!');
-  header('Location: ' . $_SERVER['HTTP_REFERER']);
-  exit;
-}
 
-// delete page
-if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
-  $page->delete();
-  exit;
-}
+  // delete page
+  case 'delete':
+    $page->delete();
+    exit('Saved successfully!');
 
-// show page
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-	$page->load();
-	if (ends_with($requestname, '.html'))
-	  require 'templates/markdown.php';
-	elseif (ends_with($requestname, '.txt'))
-	  require 'templates/txt.php';
-	else
-	  require 'templates/default.php';
+  // show page
+  case 'get':
+    $page->load();
+    if (preg_match('#\.html$#', $requested_name))
+      require 'templates/markdown.php';
+    elseif (preg_match('#\.txt$#', $requested_name))
+      require 'templates/txt.php';
+    else
+      require 'templates/default.php';
+
 }
