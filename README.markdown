@@ -9,15 +9,17 @@ Usage
 
 - /your-page-name      : type what you want, it's saved automagically!
 - /your-page-name.txt  : raw txt version of your text.
-- /your-page-name.html : if your text is in markdown syntax this will transform it into pretty html.
+- /your-page-name.html : your text in html, pushed through the markdown syntax.
 
 Configuration
 -------------
 
     $ chmod +w data/
 
-You'll need some way to rewrite URIs like this: ^([^/]*)$ -> index.php?name=$1
-(or edit the example .htaccess file).
+Copy `config.php.example` to `config.php`, modifying its options in it if necessary.
+
+Then, you'll need some way to rewrite URIs like this: `^([^/]*)$` -> `index.php?name=$1`
+(or use the `.htaccess` file to your liking).
 
 Licence
 ------

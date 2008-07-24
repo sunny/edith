@@ -1,9 +1,6 @@
 <?php
-// options
-define('EDITH_URI', '/edith'); // no trailing slash
-define('EDITH_DATA_PATH', 'data');
 
-// needed libraries 
+require 'config.php';
 require 'lib/helpers.php';
 require 'lib/page.class.php';
 
