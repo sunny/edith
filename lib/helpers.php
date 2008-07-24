@@ -11,5 +11,6 @@ function request_var($name) {
 }
 
 function is_xhr() {
-  return $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest';
+  return isset($_SERVER['HTTP_X_REQUESTED_WITH'])
+    and $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest';
 }
