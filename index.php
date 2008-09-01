@@ -6,7 +6,7 @@
  *   /{pagename}/{representation}
  */
 
-include 'config.php';
+@include 'config.php';
 if (!defined('EDITH_URI'))
   die('Please copy config.php.example to config.php');
 
@@ -45,20 +45,20 @@ if ($representation !== '') {
     case 'GET': case 'HEAD':
       header('Content-type: '.$TEMPLATES[$representation]);
       if ($method == 'GET')
-	      require "templates/$representation.php";
-	    exit;
+        require "templates/$representation.php";
+      exit;
 
-	  case 'POST': case 'PUT': case 'DELETE':
-	    header('HTTP/1.0 405 Method Not Allowed');
-	    header('Allow: GET, HEAD');
-	    exit;
+    case 'POST': case 'PUT': case 'DELETE':
+      header('HTTP/1.0 405 Method Not Allowed');
+      header('Allow: GET, HEAD');
+      exit;
 
-	  default:
-	    header('HTTP/1.0 501 Not Implemented');
-	    header('Allow: GET, HEAD');
-	    exit;
+    default:
+      header('HTTP/1.0 501 Not Implemented');
+      header('Allow: GET, HEAD');
+      exit;
 
-	}
+  }
 }
 
 // /{pagename}
