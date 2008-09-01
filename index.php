@@ -44,8 +44,10 @@ if ($representation !== '') {
 
     case 'GET': case 'HEAD':
       header('Content-type: '.$TEMPLATES[$representation]);
-      if ($method == 'GET')
-        require "templates/$representation.php";
+      if ($method == 'HEAD')
+        exit;
+      $page->load();
+      require "templates/$representation.php";
       exit;
 
     case 'POST': case 'PUT': case 'DELETE':
