@@ -43,8 +43,11 @@ class Page {
   }
 
   function delete() {
-    unlink($this->filepath());
+    return unlink($this->filepath());
   }
 
+  function is_writeable() {
+    return is_writeable($this->filepath());
+  }
 }
 

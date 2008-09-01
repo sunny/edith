@@ -76,7 +76,8 @@ switch ($method) {
 
     if ($method == 'GET') {
       $page->load();
-      require 'templates/default.php';
+      $template = $page->is_writeable() ? 'default' : 'html';
+      require "templates/$template.php";
     }
     exit;
 
