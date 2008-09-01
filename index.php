@@ -1,47 +1,109 @@
 <?php
-// options
-define('EDITH_URI', '/edith'); // no trailing slash
-define('EDITH_DATA_PATH', 'data');
+/*
+ * Edith's dispatching controller.
+ * RESTFULly answers to GET, HEAD, POST, PUT and DELETE to these resources:
+ *   /{pagename}
+ *   /{pagename}/{representation}
+ */
 
-// needed libraries 
+// options
+define('EDITH_URI', '/edith'); // URI to where edith is hosted (no trailing slash)
+define('EDITH_DATA_PATH', 'data'); // path to the data folder, make sure it is writeable
+
+$TEMPLATES = array(
+  'html' => 'text/html',
+  'txt' => 'text/plain'
+);
+
+// include libraries 
 require 'lib/helpers.php';
 require 'lib/page.class.php';
 
-// get page name
-$requestname = request_var('name');
-$pagename = remove_from_end(remove_from_end($requestname, '.html'), '.txt');
-$page = new Page($pagename);
+// setup request
+$method = $_SERVER['REQUEST_METHOD'];
+$representation = request_var('representation');
+$page = new Page(request_var('name'));
+$page_exists = $page->exists();
+
+// don't allow pages with unsafe names
 if (!$page->has_safe_name()) {
   header('HTTP/1.0 404 Not Found');
   exit('The page name can only contain dashes, dots and alphanumerical characters.');
 }
 
-// create or save page
-if ($_SERVER['REQUEST_METHOD'] == 'POST' or $_SERVER['REQUEST_METHOD'] == 'PUT') {
-  $created = $page->is_new();
-  $page->text = request_var('text');
-  $page->save();
-  if ($created)
-    header('HTTP/1.0 201 Created');
-  if ($_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest')
-    exit('Saved successfully!');
-  header('Location: ' . $_SERVER['HTTP_REFERER']);
-  exit;
+// {pagename}/{representation}
+if ($representation !== '') {
+
+  if (!$page_exists) {
+    header('HTTP/1.0 404 Not Found');
+    exit('404 Not Found');
+  }
+
+  if (!isset($TEMPLATES[$representation])) {
+    header('HTTP/1.0 404 Not Found');
+    exit('Representation can only be one of: '.implode(array_keys($TEMPLATES), ', ')) . '.');
+  }
+
+  switch ($method) {
+
+    case 'GET': case 'HEAD':
+      header('Content-type: '.$TEMPLATES[$representation]);
+      if ($method == 'GET')
+	      require "templates/$representation.php";
+	    exit;
+
+	  case 'POST': case 'PUT': case 'DELETE':
+	    header('HTTP/1.0 405 Method Not Allowed');
+	    header('Allow: GET, HEAD');
+	    exit;
+
+	  default:
+	    header('HTTP/1.0 501 Not Implemented');
+	    header('Allow: GET, HEAD');
+	    exit;
+
+	}
 }
 
-// delete page
-if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
-  $page->delete();
-  exit;
+// /{pagename}
+
+
+switch ($method) {
+
+  case 'GET': case 'HEAD':
+    if (!$page_exists)
+      header('HTTP/1.0 404 Not Found');
+
+    header('Content-type: text/html');
+
+    if ($method == 'GET') {
+      $page->load();
+      require 'templates/default.php';
+    }
+    exit;
+
+  case 'DELETE':
+    if (!$page_exists)
+      header('HTTP/1.0 404 Not Found');
+    else
+      $page->delete();
+    exit;
+
+  case 'PUT': case 'POST':
+    $page->text = request_var('text');
+    $page->save();
+
+    if (!$page_exists)
+      header('HTTP/1.0 201 Created');
+    if ($_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest')
+      exit('Saved successfully!');
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    exit;
+
+  default:
+    header('HTTP/1.0 501 Not Implemented');
+    header('Allow: GET, HEAD');
+    exit;
+
 }
 
-// show page
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-	$page->load();
-	if (ends_with($requestname, '.html'))
-	  require 'templates/markdown.php';
-	elseif (ends_with($requestname, '.txt'))
-	  require 'templates/txt.php';
-	else
-	  require 'templates/default.php';
-}

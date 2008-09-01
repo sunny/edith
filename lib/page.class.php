@@ -21,19 +21,19 @@ class Page {
     return preg_match("/^[a-z0-9-._ ]+$/i", $this->name);
   }
 
-  function is_new() {
-    return !is_file($this->filepath());
+  function exists() {
+    return is_file($this->filepath());
   }
 
   function load() {	
     $this->text = 'Edit me!';
-    if (!$this->is_new())
+    if ($this->exists())
       $this->text = file_get_contents($this->filepath());
   }
 
   function save() {
 	  if ($this->text == '') {
-	    if (!$this->is_new())
+	    if ($this->exists())
 	      $this->delete(); // delete empty files
 	    return;
     }
