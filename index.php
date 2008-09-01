@@ -6,14 +6,7 @@
  *   /{pagename}/{representation}
  */
 
-// options
-define('EDITH_URI', '/edith'); // URI to where edith is hosted (no trailing slash)
-define('EDITH_DATA_PATH', 'data'); // path to the data folder, make sure it is writeable
-
-$TEMPLATES = array(
-  'html' => 'text/html',
-  'txt' => 'text/plain'
-);
+@require 'config.php' or die('Please copy config.php.example to config.php');
 
 // include libraries 
 require 'lib/helpers.php';

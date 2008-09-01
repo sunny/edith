@@ -1,0 +1,10 @@
+<?php
+
+define('EDITH_URI', '/edith');
+define('EDITH_DATA_PATH', 'data');
+
+$TEMPLATES = array(
+  'html' => 'text/html',
+  'txt' => 'text/plain'
+);
+
