@@ -1,5 +1,6 @@
-# Good-looking URIs for everything that doesn't start with index.php or contains slashes.
+# Good-looking URIs to have /edith/{pagename}/{representation}
 RewriteEngine on
-RewriteBase /edit/
+RewriteBase /edith/
 RewriteRule ^index\.php $0 [L]
-RewriteRule ^([^/]*)$ index.php?name=$1
+RewriteRule ^([^/]+)/?([^/]*)$ index.php?name=$1&representation=$2
+
