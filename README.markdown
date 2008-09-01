@@ -7,11 +7,12 @@ Saves every 2 seconds. Think of it as a magic web notepad.
 Configuration
 -------------
 
-Copy `config.php.example` to `config.php`, modifying its options in it if necessary.
+Copy `config.php.example` to `config.php`, editing it as you like.
+
 Make the `data` directory writable, perhaps like so `chmod -R a+w data/`.
 
-Unless you're using the `.htaccess`, rewrite URIs in your HTTP server like this:
-`^([^/]*)/?([^/]*)($` -> `index.php?name=$1&representation=$2`
+Unless you're using the `.htaccess` under Apache, rewrite URIs in your HTTP server like this:
+`^([^/]*)/?([^/]*)$` -> `index.php?name=$1&representation=$2`
 
 
 Usage
