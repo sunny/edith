@@ -34,7 +34,8 @@ if ($representation !== '') {
 
   if (!isset($TEMPLATES[$representation])) {
     header('HTTP/1.0 404 Not Found');
-    exit('Representation can only be one of: '.implode(array_keys($TEMPLATES), ', ')) . '.');
+    $representations = implode(array_keys($TEMPLATES), ', ');
+    exit("Representation can only be one of: $representations.");
   }
 
   switch ($method) {
