@@ -3,7 +3,7 @@ Edith
 
 A quick small wiki, perfect for pasting quick texts or code between friends.
 
-Try it out at http://edit.sunfox.org/anythingyoulike and typing away. Don't worry about saving, it saves every 2 seconds. Paste and forget! Think of it as a magic web notepad.
+Try it out at [edit.sunfox.org](http://edit.sunfox.org)/anythingyoulike. Paste and forget! Don't worry about saving, it saves every 2 seconds. Think of it as a magic web notepad.
 
 Configuration
 -------------
@@ -28,4 +28,4 @@ Licence
 ------
 
 - By Sunny Ripert <sunny@sunfox.org>
-- Under the GPL http://www.gnu.org/copyleft/gpl.html
+- Under the [GPL](http://www.gnu.org/copyleft/gpl.html)
