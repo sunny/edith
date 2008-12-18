@@ -9,6 +9,8 @@
 @include 'config.php';
 if (!defined('EDITH_URI'))
   die('Please copy config.php.example to config.php');
+if (!is_dir(EDITH_DATA_PATH))
+  die(EDITH_DATA_PATH . " is not a directory");
 
 // include libraries 
 require 'lib/helpers.php';
