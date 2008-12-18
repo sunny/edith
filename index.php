@@ -16,9 +16,13 @@ require 'lib/page.class.php';
 
 // setup request
 $method = $_SERVER['REQUEST_METHOD'];
-$representation = request_var('representation');
-$page = new Page(request_var('name'));
+$request_uri = $_SERVER['REQUEST_URI'];
+preg_match('#^/([^/]+?)(?:/(.+))?/?$#', $request_uri, $request_matches);
+
+$page = new Page($request_matches[1]);
 $page_exists = $page->exists();
+
+$representation = $request_matches[2];
 
 // don't allow pages with unsafe names
 if (!$page->has_safe_name()) {
@@ -27,11 +31,11 @@ if (!$page->has_safe_name()) {
 }
 
 // {pagename}/{representation}
-if ($representation !== '') {
-
+if ($representation != '') {
+  
   if (!$page_exists) {
     header('HTTP/1.0 404 Not Found');
-    exit('404 Not Found');
+    exit("404 Not Found: $page->name");
   }
 
   if (!isset($TEMPLATES[$representation])) {

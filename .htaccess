@@ -1,6 +1,0 @@
-# Good-looking URIs to have /edith/{pagename}/{representation}
-RewriteEngine on
-RewriteBase /edith/
-RewriteRule ^index\.php $0 [L]
-RewriteRule ^([^/]+)/?([^/]*)$ index.php?name=$1&representation=$2
-
