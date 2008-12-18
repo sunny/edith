@@ -7,7 +7,7 @@ class Page {
   }
 
   function filepath() {
-    return EDITH_DATA_PATH . '/' . str_replace('.', '_', $this->name) . '.txt';
+    return dirname(__FILE__) . '/../' . EDITH_DATA_PATH . '/' . str_replace('.', '_', $this->name) . '.txt';
   }
 
   function name() {
