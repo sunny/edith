@@ -32,11 +32,12 @@ class Page {
   }
 
   function save() {
-	  if ($this->text == '') {
-	    if ($this->exists())
-	      $this->delete(); // delete empty files
-	    return;
+    if ($this->text == '') {
+      if ($this->exists())
+        $this->delete(); // delete empty files
+      return;
     }
+
     $handle = @fopen($this->filepath(), 'w') or die('Error saving page.');
     @fwrite($handle, $this->text) or die('Error saving page.');
     fclose($handle);

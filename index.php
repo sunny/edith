@@ -16,10 +16,9 @@ if (!is_dir(EDITH_DATA_PATH))
 require 'lib/helpers.php';
 require 'lib/page.class.php';
 
-// setup request
+// find page and repr from request
 $method = $_SERVER['REQUEST_METHOD'];
-$request_uri = $_SERVER['REQUEST_URI'];
-preg_match('#^/([^/]+?)(?:/(.+))?/?$#', $request_uri, $request_matches);
+preg_match('#^/([^/]+?)(?:/(.+))?/?$#', $_SERVER['REQUEST_URI'], $request_matches);
 
 $page = new Page($request_matches[1]);
 $page_exists = $page->exists();
@@ -34,16 +33,16 @@ if (!$page->has_safe_name()) {
 
 // {pagename}/{representation}
 if ($representation != '') {
-  
+
   if (!$page_exists) {
     header('HTTP/1.0 404 Not Found');
-    exit("404 Not Found: $page->name");
+    die("404 Not Found: $page->name");
   }
 
   if (!isset($TEMPLATES[$representation])) {
     header('HTTP/1.0 404 Not Found');
     $representations = implode(array_keys($TEMPLATES), ', ');
-    exit("Representation can only be one of: $representations.");
+    die("Representation can only be one of: $representations.");
   }
 
   switch ($method) {
@@ -85,6 +84,7 @@ switch ($method) {
       $template = $page->is_writeable() ? 'default' : 'html';
       require "templates/$template.php";
     }
+
     exit;
 
   case 'DELETE':
