@@ -81,7 +81,7 @@ switch ($method) {
 
     if ($method == 'GET') {
       $page->load();
-      $template = $page->is_writeable() ? 'default' : 'html';
+      $template = (!$page_exists or $page->is_writeable()) ? 'default' : 'html';
       require "templates/$template.php";
     }
 
