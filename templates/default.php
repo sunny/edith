@@ -10,10 +10,9 @@
   <script type="text/javascript" src="<?php echo EDITH_URI ?>/public/script.js"></script>
 </head>
 <body>
-  <form method="post" action="<?php echo EDITH_URI ?>/" id="save">
+  <form method="post" action="<?php echo EDITH_URI ?>/<?php echo h($page->name) ?>" id="save">
     <p>
       <textarea name="text" id="text" cols="42" rows="42"><?php echo h($page->text) ?></textarea>
-      <input type="hidden" name="name" value="<?php echo h($page->name) ?>" />
       <input type="submit" id="submit" />
     </p>
   </form>
