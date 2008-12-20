@@ -6,13 +6,13 @@ A quick small wiki, perfect for pasting quick texts or code between friends.
 Try it out at [http://edit.sunfox.org/any-page-name](http://edit.sunfox.org/any-page-name). Paste and forget! Don't worry about saving, it saves every 2 seconds. Think of it as a magic web notepad.
 
 Setup
--------------
+-----
 
 - Copy `config.php.example` to `config.php`, editing it as you like.
 - Make your `data` directory writable, possibly like so `chmod -R a+w data/`.
 - Tell your http server app to redirect 404s to index.php.
   - For example under lighttpd, add this line to your configuration:
-    server.error-handler-404 = "/index.php?error=404
+    server.error-handler-404 = "/index.php"
 
 Usage
 -----
