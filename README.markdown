@@ -11,8 +11,10 @@ Setup
 - Copy `config.php.example` to `config.php`, editing it as you like.
 - Make your `data` directory writable, possibly like so `chmod -R a+w data/`.
 - Tell your http server app to redirect 404s to index.php.
+
   - For example under lighttpd, add this line to your configuration:
-    server.error-handler-404 = "/index.php"
+
+      server.error-handler-404 = "/index.php"
 
 Usage
 -----
