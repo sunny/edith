@@ -7,14 +7,19 @@
   <link rel="shortcut icon" type="image/png" href="<?php echo EDITH_URI ?>/public/icon.png" />
   <link type="text/css" rel="stylesheet" href="<?php echo EDITH_URI ?>/public/style.css" />
   <script type="text/javascript" src="<?php echo EDITH_URI ?>/public/prototype.js"></script>
+  <script type="text/javascript" src="http://edith-mobwrite.appspot.com/static/compressed_form.js"></script>
   <script type="text/javascript" src="<?php echo EDITH_URI ?>/public/script.js"></script>
 </head>
 <body>
   <form method="post" action="<?php echo EDITH_URI ?>/<?php echo h($page->name) ?>" id="save">
     <p>
-      <textarea name="text" id="text" cols="42" rows="42"><?php echo h($page->text) ?></textarea>
+      <textarea name="text" id="edith-text-<?php echo $page->name ?>" cols="42" rows="42"><?php echo h($page->text) ?></textarea>
       <input type="submit" id="submit" />
     </p>
   </form>
+  <script type="text/javascript">
+  mobwrite.syncGateway='http://edith-mobwrite.appspot.com/scripts/q.py';
+  mobwrite.share('edith-text-<?php echo $page->name ?>')
+  </script>
 </body>
 </html>
