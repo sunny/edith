@@ -8,9 +8,7 @@ Try it out at [http://edit.sunfox.org/any-page-name](http://edit.sunfox.org/any-
 Setup
 -----
 
-- Make a writeable directory that will contain your pages as txt files
-
-  - For example:
+- Make a writeable directory that will contain your pages as txt files. For example:
 
       mkdir mydata
       chmod a+wx mydata
@@ -18,7 +16,8 @@ Setup
 - Copy `config.php.example` to `config.php`, pointing EDITH_DATA to your new directory
 - Tell your http server app to redirect 404s to index.php.
 
-  - For example under lighttpd, add this line to your configuration:
+  - Under apache copy `.htaccess.example` to `.htaccess` and modify the `RewriteBase` directive.
+  - Under lighttpd, add this line to your configuration:
 
       server.error-handler-404 = "/index.php"
 
