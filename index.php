@@ -16,9 +16,11 @@ if (!is_dir(EDITH_DATA_PATH))
 require 'lib/helpers.php';
 require 'lib/page.class.php';
 
+
 // find page and repr from request
 $method = $_SERVER['REQUEST_METHOD'];
-preg_match('#^/([^/]+?)(?:/(.+))?/?$#', $_SERVER['REQUEST_URI'], $request_matches);
+$request_uri = str_replace(dirname($_SERVER['PHP_SELF']), '', $_SERVER['REQUEST_URI']);
+preg_match('#^/([^/]+?)(?:/(.+))?/?$#', $request_uri, $request_matches);
 
 $page = new Page($request_matches[1]);
 $page_exists = $page->exists();
@@ -96,7 +98,10 @@ switch ($method) {
 
   case 'PUT': case 'POST':
     $page->text = request_var('text');
-    $page->save();
+    if (!$page->save()) {
+      header('HTTP/1.0 500 Internal Server Error');
+      die('Error saving page.');
+    }
 
     if (!$page_exists)
       header('HTTP/1.0 201 Created');

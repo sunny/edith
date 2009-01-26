@@ -38,9 +38,12 @@ class Page {
       return;
     }
 
-    $handle = @fopen($this->filepath(), 'w') or die('Error saving page.');
-    @fwrite($handle, $this->text) or die('Error saving page.');
+    $handle = @fopen($this->filepath(), 'w');
+    if (!$handle) return false;
+    $ok = @fwrite($handle, $this->text);
+    if (!$ok) return false;
     fclose($handle);
+    return true;
   }
 
   function delete() {
