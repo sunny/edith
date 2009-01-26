@@ -16,9 +16,11 @@ if (!is_dir(EDITH_DATA_PATH))
 require 'lib/helpers.php';
 require 'lib/page.class.php';
 
+
 // find page and repr from request
 $method = $_SERVER['REQUEST_METHOD'];
-preg_match('#^/([^/]+?)(?:/(.+))?/?$#', $_SERVER['REQUEST_URI'], $request_matches);
+$request_uri = str_replace(dirname($_SERVER['PHP_SELF']), '', $_SERVER['REQUEST_URI']);
+preg_match('#^/([^/]+?)(?:/(.+))?/?$#', $request_uri, $request_matches);
 
 $page = new Page($request_matches[1]);
 $page_exists = $page->exists();
