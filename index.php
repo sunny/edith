@@ -12,6 +12,12 @@ if (!defined('EDITH_URI'))
 if (!is_dir(EDITH_DATA_PATH))
   die(EDITH_DATA_PATH . " is not a directory");
 
+// mime types to send for each template
+$TEMPLATES = array(
+  'html' => 'text/html',
+  'txt' => 'text/plain'
+);
+
 // include libraries 
 require 'lib/helpers.php';
 require 'lib/page.class.php';
