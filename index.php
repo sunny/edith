@@ -19,7 +19,7 @@ require 'lib/page.class.php';
 
 // find page and repr from request
 $method = $_SERVER['REQUEST_METHOD'];
-$request_uri = str_replace(dirname($_SERVER['PHP_SELF']), '', $_SERVER['REQUEST_URI']);
+$request_uri = substr($_SERVER['REQUEST_URI'], strlen(dirname($_SERVER['PHP_SELF'])));
 preg_match('#^/?([^/]+?)(?:/(.+))?/?$#', $request_uri, $request_matches);
 
 $page = new Page($request_matches[1]);
