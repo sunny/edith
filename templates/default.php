@@ -17,9 +17,14 @@
       <input type="submit" id="submit" />
     </p>
   </form>
+
+<?php if (defined('MOBWRITE_URI') and define('MOBWRITE_KEY')
+    and MOBWRITE_URI and MOBWRITE_KEY) : ?>
   <script type="text/javascript">
-  mobwrite.syncGateway='http://edith-mobwrite.appspot.com/scripts/q.py';
-  mobwrite.share('edith-text-<?php echo $page->name ?>')
+    mobwrite.syncGateway='<?php echo h(MOBWRITE_URI) ?>';
+    mobwrite.share('<?php echo MOBWRITE_KEY.'-'.$page->name ?>')
   </script>
+<?php endif; ?>
+
 </body>
 </html>

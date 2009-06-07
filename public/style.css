@@ -6,7 +6,7 @@ html, body {
   height:100%;
 }
 textarea {
-  font:1.1em Lucida Grande, Helvetica, Arial, sans-serif;
+  font:1.1em Inconsolata, Consolas, "Deja Vu Sans Mono", "Droid Sans Mono", Monaco, "Andale Mono", Courier, monospace;
   position:absolute;
   display:block;
   margin:1%;
