@@ -18,7 +18,7 @@
     </p>
   </form>
 
-<?php if (defined('MOBWRITE_URI') and define('MOBWRITE_KEY')
+<?php if (defined('MOBWRITE_URI') and defined('MOBWRITE_KEY')
     and MOBWRITE_URI and MOBWRITE_KEY) : ?>
   <script type="text/javascript">
     mobwrite.syncGateway='<?php echo h(MOBWRITE_URI) ?>';
