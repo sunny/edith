@@ -20,11 +20,11 @@ Setup
         mkdir mydata
         chmod a+wx mydata
 
-- Copy `config.php.example` to `config.php`
+- Copy `config.example.php` to `config.php`
 - Modify `config.php` to your liking
 - Tell your http server app to redirect 404s to `index.php`.
 
-    - Under apache copy `.htaccess.example` to `.htaccess` and modify the `RewriteBase` directive.
+    - Under apache copy `htaccess.example` to `.htaccess` and modify the `RewriteBase` directive.
     - Under lighttpd, add this line to your configuration:
 
             server.error-handler-404 = "/index.php"
