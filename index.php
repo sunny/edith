@@ -4,6 +4,10 @@
  * RESTFULly answers to GET, HEAD, POST, PUT and DELETE to these resources:
  *   /{pagename}
  *   /{pagename}/{representation}
+ * or
+ *   /{pagename}
+ *   /{pagename}.{representation}
+ * depending on config setting.
  */
 
 @include 'config.php';
@@ -17,6 +21,11 @@ $TEMPLATES = array(
   'html' => 'text/html',
   'txt' => 'text/plain'
 );
+// regular expressions for subdir or file extension
+$URI_REGEX = array(
+  'directory' => '#^/?([^/]+?)(?:/(.+))?/?$#',
+  'extension' => '#^/?([^.]+?)(?:\.(.+))?/?$#'
+);
 
 // include libraries 
 require 'lib/helpers.php';
@@ -26,7 +35,7 @@ require 'lib/page.class.php';
 // find page and repr from request
 $method = $_SERVER['REQUEST_METHOD'];
 $request_uri = substr($_SERVER['REQUEST_URI'], strlen(dirname($_SERVER['PHP_SELF'])));
-preg_match('#^/?([^/]+?)(?:/(.+))?/?$#', $request_uri, $request_matches);
+preg_match($URI_REGEX[EDITH_REPRESENTATION_FORMAT], $request_uri, $request_matches);
 
 $page = new Page($request_matches[1]);
 $page_exists = $page->exists();
