@@ -24,7 +24,7 @@ $TEMPLATES = array(
 // regular expressions for subdir or file extension
 $URI_REGEX = array(
   'directory' => '#^/?([^/]+?)(?:/(.+))?/?$#',
-  'extension' => '#^/?([^.]+?)(?:\.(.+))?/?$#'
+  'extension' => '#^/?([^/.]+?)(?:\.(.+))?/?$#'
 );
 
 // include libraries 
