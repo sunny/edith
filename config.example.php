@@ -10,10 +10,6 @@ define('EDITH_URI', '/edith');
 // (needs to be read and writeable by the server)
 define('EDITH_DATA_PATH', 'data');
 
-// to specify representation types as subdirectories, 'directory'
-// to specify representation types as file extensions, 'extension'
-define('EDITH_REPRESENTATION_FORMAT', 'directory');
-
 // to handle concurrent access, the edit box uses Google Mobwrite
 // http://code.google.com/p/google-mobwrite/
 // Uncomment the configuration lines to enable Mobwrite
