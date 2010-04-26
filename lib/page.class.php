@@ -39,7 +39,9 @@ class Page {
     }
 
     $handle = @fopen($this->filepath(), 'w');
-    if (!$handle) return false;
+    if (!$handle)
+      throw new Exception('Error opening the file in write mode');
+
     $ok = @fwrite($handle, $this->text);
     if (!$ok) return false;
     fclose($handle);

@@ -113,9 +113,15 @@ switch ($method) {
 
   case 'PUT': case 'POST':
     $page->text = request_var('text');
-    if (!$page->save()) {
+    try {
+      $saved = $page->save();
+    } catch (Exception $e) {
+      $saved = $e->getMessage();
+    }
+
+    if ($saved !== true) {
       header('HTTP/1.0 500 Internal Server Error');
-      die('Error saving page.');
+      die($saved ? $saved : 'Error saving page.');
     }
 
     if (!$page_exists)
