@@ -57,8 +57,6 @@ if ($representation != '') {
   switch ($method) {
 
     case 'GET': case 'HEAD':
-      if ($method == 'HEAD')
-        exit;
       $page->load();
       require "templates/$representation.php";
       exit;
@@ -86,13 +84,16 @@ switch ($method) {
       header('HTTP/1.0 404 Not Found');
 
     header('Content-type: text/html');
+    $page->load();
+    $template = 'default';
 
-    if ($method == 'GET') {
-      $page->load();
-      $template = (!$page_exists or $page->is_writeable()) ? 'default' : 'html';
-      require "templates/$template.php";
-    }
+    if (!$page->is_writeable())
+      if ($page_exists)
+        $template = 'html';
+      else
+        die("Sorry but you cannot create new pages");
 
+    require "templates/$template.php";
     exit;
 
   case 'DELETE':
