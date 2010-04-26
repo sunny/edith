@@ -42,6 +42,8 @@ class Page {
     if (!$handle)
       throw new Exception('Error opening the file in write mode');
 
+    $this->text = str_replace("\r\n", "\n", $this->text); // CRLF to LF
+
     $ok = @fwrite($handle, $this->text);
     if (!$ok) return false;
     fclose($handle);
