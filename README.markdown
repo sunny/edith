@@ -9,27 +9,16 @@ Usage
 -----
 
 - `/any-page-name`: type what you want, it's saved automagically!
-- `/any-page-name/txt`: raw text version.
-- `/any-page-name/html`: html representation, pushed through the markdown syntax.
+- `/any-page-name.txt`: raw text version.
+- `/any-page-name.html`: html representation, pushed through the markdown syntax.
 
 Setup
 -----
 
-- Make a writeable directory that will contain your pages as txt files. For example:
-
-        mkdir mydata
-        chmod a+wx mydata
-
-- Copy `config.example.php` to `config.php`
-- Modify `config.php` to your liking
-- Tell your http server app to redirect 404s to `index.php`.
-
-    - Under apache copy `htaccess.example` to `.htaccess` and modify the `RewriteBase` directive.
-    - Under lighttpd, add this line to your configuration:
-
-            server.error-handler-404 = "/index.php"
-
-- To enable concurrent accesses, uncomment the lines in `config.php` regarding [Google Mobwrite](http://code.google.com/p/google-mobwrite/)
+- Make a writeable directory that will contain your pages as txt files. For example: `mkdir data && chmod a+w data`
+- Tell your http server to redirect 404s to `index.php` (under Apache copy `htaccess.example` to `.htaccess` and modify the `RewriteBase` directive if necessary)
+- Copy `config.example.php` to `config.php` and modify it to your liking
+- To enable concurrent access, uncomment the lines in `config.php` regarding [Google Mobwrite](http://code.google.com/p/google-mobwrite/)
 
 Licence
 ------
