@@ -13,11 +13,8 @@ if (!defined('EDITH_URI'))
 if (!is_dir(EDITH_DATA_PATH))
   die(EDITH_DATA_PATH . " is not a directory");
 
-// mime types to send for each template
-$TEMPLATES = array(
-  'html' => 'text/html',
-  'txt' => 'text/plain'
-);
+// allowed templates to load
+$TEMPLATES = array('html', 'txt');
 
 // regular expression to distinguish page and extension
 define('URI_REGEX', '#^/?([^/.]+?)(?:\.(.+))?/?$#');
@@ -43,7 +40,7 @@ if (!$page->has_safe_name()) {
   exit('The page name can only contain dashes, dots and alphanumerical characters.');
 }
 
-// {pagename}/{representation}
+// /{pagename}.{representation}
 if ($representation != '') {
 
   if (!$page_exists) {
@@ -51,16 +48,15 @@ if ($representation != '') {
     die("404 Not Found: $page->name");
   }
 
-  if (!isset($TEMPLATES[$representation])) {
+  if (!in_array($representation, $TEMPLATES)) {
     header('HTTP/1.0 404 Not Found');
-    $representations = implode(array_keys($TEMPLATES), ', ');
+    $representations = implode($TEMPLATES, ', ');
     die("Representation can only be one of: $representations.");
   }
 
   switch ($method) {
 
     case 'GET': case 'HEAD':
-      header('Content-type: '.$TEMPLATES[$representation]);
       if ($method == 'HEAD')
         exit;
       $page->load();
