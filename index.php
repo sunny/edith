@@ -17,12 +17,11 @@ if (!is_dir(EDITH_DATA_PATH))
 $TEMPLATES = array('html', 'txt');
 
 // regular expression to distinguish page and extension
-define('URI_REGEX', '#^/?([^/.]+?)(?:\.(.+))?/?$#');
+define('URI_REGEX', '#^/?([^/]+?)\.?('.implode('|', $TEMPLATES).')?$#');
 
 // include libraries 
 require 'lib/helpers.php';
 require 'lib/page.class.php';
-
 
 // find page and repr from request
 $method = $_SERVER['REQUEST_METHOD'];
