@@ -21,3 +21,6 @@ define('EDITH_DATA_PATH', 'data');
 // to host your own version of Mobwrite, change the following uri
 # define('MOBWRITE_URI', 'http://edith-mobwrite.appspot.com/scripts/q.py');
 
+// Regular Expression to distinguish between the page and the extension
+// For example if you prefer `/page.js/txt` URIs instead of `/page.js.txt`, use the regexp below:
+# define('URI_REGEX', '#^/?([^/]+?)(?:/(.+))?/?$#');

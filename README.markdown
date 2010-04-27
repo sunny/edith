@@ -28,9 +28,9 @@ This section is only for ninjas and such.
 - To stop users from editing a page, make it non-writeable on the disk, e.g. `chmod -w data/foo.txt`.
 - To stop users from creating new pages, make the data directory non-writeable, e.g. `chmod -w data`.
 - To create a new template, add a PHP file in `templates/`.
-- If you prefer `/page.js/txt` URIs instead of `/page.js.txt`, change the value of `URI_REGEX` in `index.php` to :
+- You may use any file name you like as long as it doesn't end like a representation (.txt or .html)
+- If you prefer `/page.js/txt` URIs instead of `/page.js.txt`, the config file has a setting for you.
 
-        define('URI_REGEX', '#^/?([^/]+?)(?:/(.+))?/?$#');
 
 Licence
 ------
