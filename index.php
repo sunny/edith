@@ -32,7 +32,7 @@ preg_match(URI_REGEX, $request_uri, $request_matches);
 $page = new Page($request_matches[1]);
 $page_exists = $page->exists();
 
-$representation = $request_matches[2];
+$representation = isset($request_matches[2]) ? $request_matches[2] : '';
 
 // don't allow pages with unsafe names
 if (!$page->has_safe_name()) {
