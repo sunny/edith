@@ -13,17 +13,16 @@ if (!defined('EDITH_URI'))
 if (!is_dir(EDITH_DATA_PATH))
   die(EDITH_DATA_PATH . " is not a directory");
 
-// all templates are in the templates directory
-$templates = array();
-$template_files = glob('templates/*.php');
+// all representations are in the templates directory
+$representations = array();
 foreach (glob('templates/*.php') as $file)
-  $templates[] = basename($file, '.php');
+  $representations[] = basename($file, '.php');
 
 // regular expression to distinguish page and extension
 if (!defined('URI_REGEX'))
-  define('URI_REGEX', '#^/?([^/]+?)\.?('.implode('|', $templates).')?$#');
+  define('URI_REGEX', '#^/?([^/]+?)\.?('.implode('|', $representations).')?$#');
 
-// include libraries 
+// include libraries
 require 'lib/helpers.php';
 require 'lib/page.class.php';
 
@@ -51,10 +50,9 @@ if ($representation != '') {
     die("404 Not Found: $page->name");
   }
 
-  if (!in_array($representation, $templates)) {
+  if (!in_array($representation, $representations)) {
     header('HTTP/1.0 404 Not Found');
-    $representations = implode($templates, ', ');
-    die("Representation can only be one of: $representations.");
+    die('Representation can only be one of: '.implode($representations, ', '));
   }
 
   switch ($method) {
