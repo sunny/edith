@@ -31,7 +31,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 $request_uri = substr($_SERVER['REQUEST_URI'], strlen(dirname($_SERVER['PHP_SELF'])));
 preg_match(URI_REGEX, $request_uri, $request_matches);
 
-$page = new Page($request_matches[1]);
+$page = new Page(isset($request_matches[1]) ? $request_matches[1] : '');
 $page_exists = $page->exists();
 
 $representation = isset($request_matches[2]) ? $request_matches[2] : '';
