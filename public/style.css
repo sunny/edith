@@ -4,16 +4,26 @@
 }
 html, body {
   height:100%;
+  overflow:hidden;
 }
+
+form {
+   padding:0;
+   margin:0;
+}
+
 textarea {
   font:1.1em Inconsolata, Consolas, "Deja Vu Sans Mono", "Droid Sans Mono", Monaco, "Andale Mono", Courier, monospace;
   position:absolute;
   display:block;
-  margin:1%;
+  padding:0 0 0 1%;
+  margin:1% 0 0 1%;
   width:98%;
-  height:97%;
+  height:98%;
   border:0;
 }
+
+
 #submit {
   z-index:2;
   position:absolute;
