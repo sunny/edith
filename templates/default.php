@@ -5,7 +5,7 @@
   <title><?php echo h($page->name()); ?></title>
   <link rel="shortcut icon" href="<?php echo EDITH_URI ?>/public/icon.png" />
   <link rel="stylesheet" href="<?php echo EDITH_URI ?>/public/style.css" />
-  <script src="<?php echo EDITH_URI ?>/public/prototype.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
   <script src="http://edith-mobwrite.appspot.com/static/compressed_form.js"></script>
   <script src="<?php echo EDITH_URI ?>/public/script.js"></script>
 </head>
