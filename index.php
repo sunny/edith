@@ -28,7 +28,8 @@ require 'lib/page.class.php';
 
 // find page and repr from request
 $method = $_SERVER['REQUEST_METHOD'];
-$request_uri = substr($_SERVER['REQUEST_URI'], strlen(dirname($_SERVER['PHP_SELF'])));
+$request_uri = isset($_SERVER['RACK_REQUEST_URI']) ? $_SERVER['RACK_REQUEST_URI'] : $_SERVER['REQUEST_URI'];
+$request_uri = substr($request_uri, strlen(dirname($_SERVER['PHP_SELF'])));
 preg_match(URI_REGEX, $request_uri, $request_matches);
 
 $page = new Page(isset($request_matches[1]) ? $request_matches[1] : '');

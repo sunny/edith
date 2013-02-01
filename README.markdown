@@ -62,6 +62,11 @@ If you prefer `/page.js/txt` URLs instead of `/page.js.txt`, the config file has
 Create new representations by adding PHP files in `templates/` and using their name as an extension.
 
 
+### Rack
+
+If you would like to serve it using Rack, please install the `rack-legacy` and `rack-rewrite` gems. Rack-legacy will serve the files using `php-cgi` and the provided `config.ru`.
+
+
 Licence
 -------
 
