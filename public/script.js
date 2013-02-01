@@ -2,28 +2,28 @@
 $(function() {
   var text = $('textarea')
 
-  // Favicon
-  function faviconUpdate(color) {
-    replaceFavicon(paperImage(text.val(), color))
-  }
-  text.on('edith:saved', function() { faviconUpdate('black') })
-  text.on('edith:fail', function() { faviconUpdate('red') })
-  text.on('input', function() { faviconUpdate('grey') })
-  faviconUpdate('black')
-
   // Automagic save
-  text.onInterval(2, 'input', function() {
-    $('form').ajax({ complete: text.trigger('edith:saved'), error: text.trigger('edith:error') })
-  })
+  text.on('input', function() { text.data('change', true) })
+  setInterval(function() {
+    if (text.data('change')) $('form').ajax()
+    text.data('change', false)
+  }, 2e3)
+
+  // Favicon
+  $('textarea').textFavicon('black')
+  text.on('input', function() { text.textFavicon('grey') })
+  $(document).ajaxComplete(function() { if (!text.data('change')) text.textFavicon('black') })
+             .ajaxError(function() {    if (!text.data('change')) text.textFavicon('red') })
 
   // Start
   text.tabify().focus()
 })
 
-function replaceFavicon(href) {
+// Replace the current favicon with the element's text, using paperImage
+$.fn.textFavicon = function(color) {
+  var href = paperImage(this.val(), color)
   $('link[rel~=icon]').remove()
-  var link = $('<link rel="icon" />').attr('href', href)
-  $('head').append(link)
+  $('head').append($('<link rel="icon" />').attr('href', href))
 }
 
 // Returns the data-url for image resembling a page. Takes a text to mimic lines.
