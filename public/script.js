@@ -1,13 +1,59 @@
 // Edith
 $(function() {
-  $('#submit').hide()
-  $('textarea')
-    .focus()
-    .tabsPlease()
-    .onInterval(2, 'input', function() {
-      $('form').ajax()
-    })
+  var text = $('textarea')
+
+  // Automagic save
+  text.onInterval(2, 'input', function() {
+    $('form').ajax()
+  })
+
+  // Goodies
+  text.tabify().focus()
+
+  // Favicon
+  var favicon = $('link[rel~=icon]')
+  text.nowAndOn('input', function() {
+    favicon.attr('href', paperImage(this.value))
+  })
 })
+
+
+// Returns the data-url for image resembling a page. Takes a text to mimic lines.
+function paperImage(text) {
+  // Prepare text
+  var lines = []
+  text = text.split(/\n/)
+  for (var i = 0; i <= 4; i++)
+    if (typeof text[i] !== "undefined")
+      lines.push($.trim(text[i]).length)
+
+  // Canvas
+  var canvas = document.createElement('canvas'),
+      ctx = canvas.getContext('2d')
+  canvas.width = 16
+  canvas.height = 16
+
+  // Page
+  ctx.rect(1, 1, 14, 14)
+  ctx.fillStyle = '#eee'
+  ctx.strokeStyle = '#333'
+  ctx.stroke()
+  ctx.fill()
+
+  // Lines
+  ctx.strokeStyle = '#666'
+  ctx.beginPath()
+  ctx.ln
+  var linesY = [4, 7, 10, 13]
+  for (var i = 0, _length = lines.length; i < _length; i++) {
+    var length = lines[i] > 10 ? 10 : lines[i]
+    ctx.moveTo(3, linesY[i])
+    ctx.lineTo(3 + length, linesY[i])
+  }
+  ctx.stroke()
+
+  return canvas.toDataURL("image/png")
+}
 
 // Call a callback if the given event name has occured since the given seconds
 // Example:
@@ -31,6 +77,17 @@ $.fn.onInterval = function(seconds, bind, callback) {
   })
 }
 
+// Call a callback once and attach it at the same time
+// Example:
+//   $('button').nowAndOn('click', function() {
+//     alert('Page loaded or you clicked on me')
+//   })
+$.fn.nowAndOn = function(bind, callback) {
+  this.on(bind, callback)
+  callback.call(this[0])
+}
+
+
 // Send ajax requests to the same url, method and data as a form
 // Example:
 //   $('form').submit(function() {
@@ -50,7 +107,7 @@ $.fn.ajax = function(options) {
 
 
 // Via http://stackoverflow.com/a/6140696
-$.fn.tabsPlease = function() {
+$.fn.tabify = function() {
   return this.keydown(function(e) {
     // tab was pressed
     if (e.keyCode !== 9)
