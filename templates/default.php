@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <meta charset="utf-8">
   <title><?php echo h($page->name()); ?></title>
   <link rel="shortcut icon" href="<?php echo EDITH_URI ?>/public/icon.png" />
   <link rel="stylesheet" href="<?php echo EDITH_URI ?>/public/style.css" />
@@ -19,9 +19,9 @@
 <?php if (defined('MOBWRITE_URI') and defined('MOBWRITE_KEY')
     and MOBWRITE_URI and MOBWRITE_KEY) : ?>
 
-  <script type="text/javascript">
-    mobwrite.syncGateway='<?php echo h(MOBWRITE_URI) ?>';
-    mobwrite.share('<?php echo MOBWRITE_KEY.'-'.$page->name ?>')
+  <script>
+    mobwrite.syncGateway = '<?php echo h(MOBWRITE_URI) ?>'
+    mobwrite.share('<?php echo MOBWRITE_KEY ?>-<?php echo $page->name ?>')
   </script>
 <?php endif; ?>
 
