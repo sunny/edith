@@ -3,23 +3,28 @@ $(function() {
   var text = $('textarea')
 
   // Favicon
-  var favicon = $('link[rel~=icon]')
   function faviconUpdate(color) {
-    favicon.attr('href', paperImage(text.val(), color))
+    replaceFavicon(paperImage(text.val(), color))
   }
   text.on('edith:saved', function() { faviconUpdate('black') })
+  text.on('edith:fail', function() { faviconUpdate('red') })
   text.on('input', function() { faviconUpdate('grey') })
   faviconUpdate('black')
 
   // Automagic save
   text.onInterval(2, 'input', function() {
-    $('form').ajax({ complete: text.trigger('edith:saved') })
+    $('form').ajax({ complete: text.trigger('edith:saved'), error: text.trigger('edith:error') })
   })
 
   // Start
   text.tabify().focus()
 })
 
+function replaceFavicon(href) {
+  $('link[rel~=icon]').remove()
+  var link = $('<link rel="icon" />').attr('href', href)
+  $('head').append(link)
+}
 
 // Returns the data-url for image resembling a page. Takes a text to mimic lines.
 function paperImage(text, color) {

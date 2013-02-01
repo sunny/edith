@@ -11,6 +11,7 @@ textarea {
   height: 100%;
   padding: 1em 0 0 1em;
   border: 0;
+  -moz-box-sizing: border-box;
   box-sizing: content-box;
 }
 
