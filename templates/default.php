@@ -13,7 +13,7 @@
 
   <form method="post" action="<?php echo EDITH_URI ?>/<?php echo h($page->name) ?>" id="save">
     <textarea name="text" id="edith-text-<?php echo $page->name ?>" cols="42" rows="42" autocomplete="off"><?php echo h($page->text) ?></textarea>
-    <input type="submit" id="submit" />
+    <input type="submit" />
   </form>
 
 <?php if (defined('MOBWRITE_URI') and defined('MOBWRITE_KEY')

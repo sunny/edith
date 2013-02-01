@@ -17,3 +17,7 @@ textarea {
 textarea:focus {
   outline: none;
 }
+
+input {
+  display: none;
+}
