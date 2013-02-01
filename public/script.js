@@ -2,24 +2,27 @@
 $(function() {
   var text = $('textarea')
 
-  // Automagic save
-  text.onInterval(2, 'input', function() {
-    $('form').ajax()
-  })
-
-  // Goodies
-  text.tabify().focus()
-
   // Favicon
   var favicon = $('link[rel~=icon]')
-  text.nowAndOn('input', function() {
-    favicon.attr('href', paperImage(this.value))
+  function faviconUpdate(color) {
+    favicon.attr('href', paperImage(text.val(), color))
+  }
+  text.on('edith:saved,edith:ready', function() { faviconUpdate('black') })
+  text.on('input', function() { faviconUpdate('grey') })
+
+  // Automagic save
+  text.onInterval(2, 'input', function() {
+    $('form').ajax({ complete: text.trigger('edith:saved') })
   })
+
+  // Start
+  text.tabify().focus()
+  text.triggerHandler('edith:ready')
 })
 
 
 // Returns the data-url for image resembling a page. Takes a text to mimic lines.
-function paperImage(text) {
+function paperImage(text, color) {
   // Prepare text
   var lines = []
   text = text.split(/\n/)
@@ -41,7 +44,7 @@ function paperImage(text) {
   ctx.fill()
 
   // Lines
-  ctx.strokeStyle = '#666'
+  ctx.strokeStyle = color
   ctx.beginPath()
   ctx.ln
   var linesY = [4, 7, 10, 13]
@@ -75,16 +78,6 @@ $.fn.onInterval = function(seconds, bind, callback) {
       }
     }, seconds * 1000)
   })
-}
-
-// Call a callback once and attach it at the same time
-// Example:
-//   $('button').nowAndOn('click', function() {
-//     alert('Page loaded or you clicked on me')
-//   })
-$.fn.nowAndOn = function(bind, callback) {
-  this.on(bind, callback)
-  callback.call(this[0])
 }
 
 
