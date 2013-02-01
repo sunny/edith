@@ -7,8 +7,9 @@ $(function() {
   function faviconUpdate(color) {
     favicon.attr('href', paperImage(text.val(), color))
   }
-  text.on('edith:saved,edith:ready', function() { faviconUpdate('black') })
+  text.on('edith:saved', function() { faviconUpdate('black') })
   text.on('input', function() { faviconUpdate('grey') })
+  faviconUpdate('black')
 
   // Automagic save
   text.onInterval(2, 'input', function() {
@@ -17,7 +18,6 @@ $(function() {
 
   // Start
   text.tabify().focus()
-  text.triggerHandler('edith:ready')
 })
 
 
