@@ -6,7 +6,6 @@
  *   /{pagename}
  *   /{pagename}.{representation}
  */
-
 @include 'config.php';
 if (!defined('EDITH_URI'))
   die('Please copy config.php.example to config.php');

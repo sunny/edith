@@ -6,7 +6,7 @@ html, body {
 }
 
 textarea {
-  font: 1.1em Inconsolata, Consolas, "Deja Vu Sans Mono", "Droid Sans Mono", Monaco, "Andale Mono", Courier, monospace;
+  font: 1.1em Monaco, Menlo, 'Ubuntu Mono', Inconsolata, Consolas, source-code-pro, "Deja Vu Sans Mono", "Droid Sans Mono", "Andale Mono", monospace;
   width: 100%;
   height: 100%;
   padding: 1em 0 0 1em;
