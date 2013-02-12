@@ -6,7 +6,9 @@
   <link rel="shortcut icon" href="<?php echo EDITH_URI ?>/public/icon.png" />
   <link rel="stylesheet" href="<?php echo EDITH_URI ?>/public/style.css" />
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<?php if (mobwrite_enabled()) : ?>
   <script src="http://edith-mobwrite.appspot.com/static/compressed_form.js"></script>
+<?php endif; ?>
   <script src="<?php echo EDITH_URI ?>/public/script.js"></script>
 </head>
 <body>
@@ -16,8 +18,7 @@
     <input type="submit" />
   </form>
 
-<?php if (defined('MOBWRITE_URI') and defined('MOBWRITE_KEY')
-    and MOBWRITE_URI and MOBWRITE_KEY) : ?>
+<?php if (mobwrite_enabled()) : ?>
   <script>
     mobwrite.syncGateway = '<?php echo h(MOBWRITE_URI) ?>'
     mobwrite.share('<?php echo MOBWRITE_KEY ?>-<?php echo $page->name ?>')
