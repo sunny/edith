@@ -14,3 +14,8 @@ function is_xhr() {
   return isset($_SERVER['HTTP_X_REQUESTED_WITH'])
     and $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest';
 }
+
+function mobwrite_enabled() {
+  return defined('MOBWRITE_URI') and defined('MOBWRITE_KEY')
+    and MOBWRITE_URI and MOBWRITE_KEY;
+}
