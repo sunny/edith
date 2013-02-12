@@ -5,6 +5,10 @@ html, body {
   padding: 0;
 }
 
+form {
+  height: 100%;
+}
+
 textarea {
   font: 1.1em Monaco, Menlo, 'Ubuntu Mono', Inconsolata, Consolas, source-code-pro, "Deja Vu Sans Mono", "Droid Sans Mono", "Andale Mono", monospace;
   width: 100%;
