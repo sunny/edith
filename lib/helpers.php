@@ -19,3 +19,21 @@ function mobwrite_enabled() {
   return defined('MOBWRITE_URI') and defined('MOBWRITE_KEY')
     and MOBWRITE_URI and MOBWRITE_KEY;
 }
+
+function representations() {}
+  $representations = array();
+  foreach (glob('templates/*.php') as $file)
+    $representations[] = basename($file, '.php');
+  return $representations;
+}
+
+function name_and_representation_in_url() {
+  $uri = isset($_SERVER['RACK_REQUEST_URI']) ? $_SERVER['RACK_REQUEST_URI'] : $_SERVER['REQUEST_URI'];
+  $uri = substr($request_uri, strlen(dirname($_SERVER['PHP_SELF'])));
+
+  preg_match(URI_REGEX, request_uri(), $request_matches);
+  array(
+    'name'           => isset($request_matches[1]) ? $request_matches[1] : '',
+    'representation' => isset($request_matches[2]) ? $request_matches[2] : '',
+  );
+}
