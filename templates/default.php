@@ -17,7 +17,8 @@ header('Content-type: text/html; charset="UTF-8"');
 <body>
 
   <form method="post" action="<?php echo EDITH_URI ?>/<?php echo h($page->name) ?>" id="save">
-    <textarea name="text" id="edith-text-<?php echo $page->name ?>" cols="42" rows="42" autocomplete="off"><?php echo h($page->text) ?></textarea>
+    <textarea<?php if (mobwrite_enabled()) echo ' id="text-'.h(MOBWRITE_KEY).'-'.h($page->name).'"' ?>
+      name="text" cols="42" rows="42" autocomplete="off"><?php echo h($page->text) ?></textarea>
     <input type="submit" />
   </form>
 
@@ -25,7 +26,7 @@ header('Content-type: text/html; charset="UTF-8"');
 
   <script>
     mobwrite.syncGateway = '<?php echo h(MOBWRITE_URI) ?>'
-    mobwrite.share('<?php echo MOBWRITE_KEY ?>-<?php echo $page->name ?>')
+    mobwrite.share('text-<?php echo h(MOBWRITE_KEY) ?>-<?php echo h($page->name) ?>')
   </script>
 <?php endif; ?>
 
