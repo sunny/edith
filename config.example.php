@@ -3,24 +3,27 @@
  * Edith configuration
  */
 
-// root uri to your application
-define('EDITH_URI', '/edith');
+// Root URL to your application, with no trailing slash.
+# define('EDITH_URI', '/edith');
+define('EDITH_URI', '');
 
-// path to the folder which will keep text files of all pages
-// (needs to be read and writeable by the server)
-define('EDITH_DATA_PATH', 'data');
-
-// to handle concurrent access, the edit box uses Google Mobwrite
-// http://code.google.com/p/google-mobwrite/
-// Uncomment the configuration lines to enable Mobwrite
-
-// choose a unique identifier for your application so that Mobwrite can
-// identify all your pages
-# define('MOBWRITE_KEY', 'edith-text');
-
-// to host your own version of Mobwrite, change the following uri
-# define('MOBWRITE_URI', 'http://edith-mobwrite.appspot.com/scripts/q.py');
+// Path to the folder where you want to save the txt files.
+// It needs to be readeable and writeable by the server.
+# define('EDITH_DATA_PATH', 'data');
 
 // Regular Expression to distinguish between the page and the extension
 // For example if you prefer `/page.js/txt` URIs instead of `/page.js.txt`, use the regexp below:
 # define('URI_REGEX', '#^/?([^/]+?)(?:/(.+))?/?$#');
+
+
+/*
+ * To handle concurrent access, you can enable Google Mobwrite by using the lines below.
+ *  Read more about Google Mobwrite: http://code.google.com/p/google-mobwrite/
+ */
+
+// Choose a unique identifier for your application so that Mobwrite can identify all your pages.
+# define('MOBWRITE_KEY', 'edith');
+
+// Mobwrite URL
+# define('MOBWRITE_URI', 'http://edith-mobwrite.appspot.com/scripts/q.py');
+
