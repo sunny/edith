@@ -20,8 +20,8 @@ if (!defined('EDITH_DATA_PATH'))
 if (!defined('URI_REGEX'))
   define('URI_REGEX', '#^/?([^/]+?)\.?('.implode('|', representations()).')?$#');
 
-if (!defined('APP_CODE'))
-  define('APP_CODE', 'edith');
+if (!defined('MOBWRITE_KEY'))
+  define('MOBWRITE_KEY', 'edith');
 
 if (!defined('MOBWRITE_URI'))
   define('MOBWRITE_URI', null);
