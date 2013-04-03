@@ -25,5 +25,5 @@ define('EDITH_URI', '');
 # define('MOBWRITE_KEY', 'edith');
 
 // Mobwrite URL
-# define('MOBWRITE_URI', 'http://edith-mobwrite.appspot.com/scripts/q.py');
+# define('MOBWRITE_URI', 'http://edith-mobwrite.appspot.com');
 
