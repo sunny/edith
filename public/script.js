@@ -108,7 +108,7 @@ $.fn.ajax = function(options) {
 $.fn.tabify = function() {
   return this.keydown(function(e) {
     // tab was pressed
-    if (e.keyCode !== 9)
+    if (e.keyCode !== 9 || e.ctrlKey || e.shiftKey)
       return;
 
     // get caret position/selection
