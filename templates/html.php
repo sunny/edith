@@ -7,12 +7,7 @@ header('Content-type: text/html; charset="UTF-8"');
   <meta charset="utf-8">
   <title><?php echo h(ucfirst($page->name)); ?></title>
   <link rel="shortcut icon" href="<?php echo EDITH_URI ?>/public/icon.png" />
-  <style>
-    body {
-      padding: 1em;
-      font: 1em Lucida Grande, Helvetica, Arial, sans-serif;
-    }
-  </style>
+  <link rel="stylesheet" href="<?php echo EDITH_URI ?>/public/html.css" />
 </head>
 <body>
 

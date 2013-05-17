@@ -1,0 +1,142 @@
+/* Base HTML */
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  font-family: Lucida Grande, Helvetica, Arial, sans-serif;
+  color: #333;
+  line-height: 1.3;
+
+  margin: 0 auto;
+  padding: 0 1em;
+  max-width: 50em;
+}
+
+/* Titles */
+
+h1 {
+  font-size: 3em;
+  margin: .7em 0 0;
+}
+
+h2 {
+  font-size: 2em;
+  margin: 1.2em 0 .5em;
+}
+
+h3 {
+  font-size: 1.3em;
+}
+
+/* Block-level elements */
+
+p {
+  margin-bottom: 0;
+  hyphenate: auto;
+  hyphenate-before: 2;
+  hyphenate-after: 3;
+  hyphenate-lines: 3;
+  orphans: 4;
+}
+
+li {
+  margin-bottom: 1ex;
+}
+
+
+blockquote {
+  font-style: italic;
+}
+
+blockquote:before {
+  font-family: Georgia, serif;
+  content: "“";
+  font-size: 2.75em;
+  text-indent: -.7em;
+  float: left;
+  margin-top: -.4ex;
+  opacity: .3;
+}
+
+code,
+pre {
+  font-family: monospace, serif;
+  font-size: 1em;
+}
+
+pre {
+  white-space: pre-wrap;
+  margin: 1.5em;
+}
+
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+
+img {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+/* Links */
+
+a:link {
+  color: #06c;
+}
+a:visited {
+  color: #76c;
+}
+
+a:focus {
+  outline: thin dotted;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+abbr {
+  font-size: .9em;
+  letter-spacing: .1;
+}
+abbr[title] {
+  border-bottom: 1px dotted #999;
+  cursor: help;
+}
+
+/* Text-level elements */
+
+b,
+strong {
+  font-weight: bold;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -.5em;
+}
+
+sub {
+  bottom: -.25em;
+}
+

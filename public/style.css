@@ -11,12 +11,14 @@ form {
 
 textarea {
   font: 1.1em Monaco, Menlo, 'Ubuntu Mono', Inconsolata, Consolas, source-code-pro, "Deja Vu Sans Mono", "Droid Sans Mono", "Andale Mono", monospace;
+  border: 0;
+  padding: 1em 0 0 1em;
   width: 100%;
   height: 100%;
-  padding: 1em 0 0 1em;
-  border: 0;
   -moz-box-sizing: border-box;
   box-sizing: content-box;
+  overflow: auto;
+  vertical-align: top;
 }
 
 textarea:focus {
