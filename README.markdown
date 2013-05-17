@@ -7,6 +7,7 @@ Don't worry about saving, it saves every 2 seconds. Paste and forget! Think of i
 
 Try it out at [http://edit.sunfox.org/any-page-name](http://edit.sunfox.org/any-page-name).
 
+
 Usage
 -----
 
@@ -14,11 +15,27 @@ Usage
 - `/any-page-name.txt`: raw text version.
 - `/any-page-name.html`: html version through the [Markdown](http://daringfireball.net/projects/markdown/) syntax.
 
-Setup
------
 
-- Make `data` a writeable directory. For example: `$ chmod a+w data`
-- Tell your HTTP server to redirect 404s to `index.php`. If using Apache, simply copy `htaccess.example` to `.htaccess`
+Install
+-------
+
+To install Edith on your own web server you need to download the files.
+
+```sh
+$ git clone https://github.com/sunny/edith.git
+```
+
+Make the `data` directory writeable.
+
+```sh
+$ chmod a+w data
+```
+
+Tell your HTTP server to redirect pages not found to `index.php`. If you are using Apache:
+
+```sh
+$ cp htaccess.example .htaccess
+```
 
 
 Further use
@@ -60,10 +77,10 @@ If you would like to serve the app using Rack, a `config.ru` is created to use t
 Contributing
 ------------
 
-You are welcome to contribute by adding issues and forking the code on the [Github page for Edith](https://github.com/sunny/edith). Yay!
+You are welcome to contribute by adding issues and [forking the code on Github](https://github.com/sunny/edith).
 
 
 Licence
 -------
 
-Edith is released under the [http://www.opensource.org/licenses/MIT](MIT License).
+Edith is released under the [MIT License](http://www.opensource.org/licenses/MIT).
