@@ -17,6 +17,12 @@ $(function() {
 
   // Indentation
   text.tabify().focus()
+
+  // Don't close the browser if any modification is waiting
+  confirmClose(function() {
+    if (text.data('change'))
+      return "Your last modifications didn't get saved yet.";
+  })
 })
 
 // Replace the current favicon with the element's text, using paperImage
@@ -61,6 +67,31 @@ function paperImage(text, color) {
   ctx.stroke()
 
   return canvas.toDataURL("image/png")
+}
+
+// Conditionnally ask for confirmation before closing the window
+// Takes a callback that returns the message to show or nothing.
+// Example:
+//   confirmClose(function(event) {
+//     if (true)
+//       return "Are you sure?"
+//   })
+function confirmClose(callback) {
+
+  window.onbeforeunload = function(event) {
+    var message = callback(event)
+    if (!message)
+      return;
+
+    // Via http://stackoverflow.com/a/2923258/311657
+    if (typeof event == 'undefined')
+      event = window.event
+
+    if (event)
+      event.returnValue = message
+
+    return message
+  }
 }
 
 // Call a callback if the given event name has occured since the given seconds
