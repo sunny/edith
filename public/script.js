@@ -10,12 +10,12 @@ $(function() {
   }, 2e3)
 
   // Favicon
-  $('textarea').textFavicon('black')
+  text.textFavicon('black')
   text.on('input', function() { text.textFavicon('grey') })
   $(document).ajaxComplete(function() { if (!text.data('change')) text.textFavicon('black') })
-             .ajaxError(function() {    if (!text.data('change')) text.textFavicon('red') })
+             .ajaxError(function() { if (!text.data('change')) text.textFavicon('red') })
 
-  // Start
+  // Indentation
   text.tabify().focus()
 })
 
@@ -86,10 +86,10 @@ $.fn.onInterval = function(seconds, bind, callback) {
 }
 
 
-// Send ajax requests to the same url, method and data as a form
+// Send ajax requests to the same url, method and data as a <form>
 // Example:
 //   $('form').submit(function() {
-//     $(this).ajax({ success: function() { alert('yeehah' )} })
+//     $(this).ajax({ success: function() { alert('yeeha!' )} })
 //   })
 // Via https://github.com/cosmic/cosmic-js/blob/master/cosmic.jquery.js
 $.fn.ajax = function(options) {
@@ -103,7 +103,7 @@ $.fn.ajax = function(options) {
   })
 }
 
-
+// Indent using the tab key
 // Via http://stackoverflow.com/a/6140696
 $.fn.tabify = function() {
   return this.keydown(function(e) {
