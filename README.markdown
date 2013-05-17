@@ -15,6 +15,7 @@ Usage
 - `/any-page-name.txt`: raw text version.
 - `/any-page-name.html`: html version through the [Markdown](http://daringfireball.net/projects/markdown/) syntax.
 
+Keyboard shortcut `cltr-e` switches from edit mode to html mode.
 
 Install
 -------
