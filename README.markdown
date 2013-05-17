@@ -57,11 +57,13 @@ If you prefer `/page.js/txt` URLs instead of `/page.js.txt`, the config file has
 If you would like to serve the app using Rack, a `config.ru` is created to use the `rack-legacy` and `rack-rewrite` gems.
 
 
+Contributing
+------------
+
+You are welcome to contribute by adding issues and forking the code on the [Github page for Edith](https://github.com/sunny/edith). Yay!
+
+
 Licence
 -------
 
-- Author: Sunny Ripert <sunny@sunfox.org>
-- Licence: [GPL](http://www.gnu.org/copyleft/gpl.html)
-- Code on github: [https://github.com/sunny/edith](sunny/edith/)
-
-
+Edith is released under the [http://www.opensource.org/licenses/MIT](MIT License).
