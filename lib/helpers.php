@@ -20,13 +20,6 @@ function mobwrite_enabled() {
     and MOBWRITE_URI and MOBWRITE_KEY;
 }
 
-function representations() {
-  $representations = array();
-  foreach (glob('templates/*.php') as $file)
-    $representations[] = basename($file, '.php');
-  return $representations;
-}
-
 function name_and_representation_in_url() {
   $request_uri = isset($_SERVER['RACK_REQUEST_URI']) ? $_SERVER['RACK_REQUEST_URI'] : $_SERVER['REQUEST_URI'];
   $request_uri = substr($request_uri, strlen(dirname($_SERVER['PHP_SELF'])));

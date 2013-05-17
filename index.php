@@ -11,6 +11,8 @@ require 'lib/helpers.php';
 require 'lib/page.class.php';
 require 'lib/markdown.php';
 
+$REPRESENTATIONS = array('html', 'txt');
+
 if (!defined('EDITH_URI'))
   define('EDITH_URI', '');
 
@@ -18,7 +20,7 @@ if (!defined('EDITH_DATA_PATH'))
   define('EDITH_DATA_PATH', 'data');
 
 if (!defined('URI_REGEX'))
-  define('URI_REGEX', '#^/?([^/]+?)\.?('.implode('|', representations()).')?$#');
+  define('URI_REGEX', '#^/?([^/]+?)\.?('.implode('|', $REPRESENTATIONS).')?$#');
 
 if (!defined('MOBWRITE_KEY'))
   define('MOBWRITE_KEY', 'edith');

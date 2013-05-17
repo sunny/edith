@@ -19,10 +19,9 @@ if ($representation != '') {
     die("404 Not Found: $page->name");
   }
 
-  $representations = representations();
-  if (!in_array($representation, $representations)) {
+  if (!in_array($representation, $REPRESENTATIONS)) {
     header('HTTP/1.0 404 Not Found');
-    die('Representation can only be one of: '.implode($representations, ', '));
+    die('Representation can only be one of: '.implode($REPRESENTATIONS, ', '));
   }
 
   switch ($_SERVER['REQUEST_METHOD']) {
