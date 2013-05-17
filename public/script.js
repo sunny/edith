@@ -23,6 +23,16 @@ $(function() {
     if (text.data('change'))
       return "Your last modifications didn't get saved yet.";
   })
+
+  // Hotkey ctrl-e switches to HTML mode
+  $(window).keydown(function(e) {
+    if (e.ctrlKey && String.fromCharCode(e.keyCode) == "E") {
+      var href = window.location.href + '.html'
+      href = href.replace(/\/.html$/, '/index.html')
+      window.location = href
+    }
+  })
+
 })
 
 // Replace the current favicon with the element's text, using paperImage
