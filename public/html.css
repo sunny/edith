@@ -19,16 +19,16 @@ body {
 
 h1 {
   font-size: 3em;
-  margin: .7em 0 0;
+  margin: .7em 0 .2em;
 }
 
 h2 {
-  font-size: 2em;
-  margin: 1.2em 0 .5em;
+  font-size: 1.8em;
+  margin: 1em 0 .5em;
 }
 
 h3 {
-  font-size: 1.3em;
+  font-size: 1.2em;
 }
 
 /* Block-level elements */
@@ -125,7 +125,7 @@ strong {
 }
 
 mark {
-  background: #ff0;
+  background: lightyellow;
 }
 
 sub,
