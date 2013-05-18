@@ -2,23 +2,6 @@
 
 (function($) {
 
-  // Send ajax requests to the same url, method and data as a <form>
-  // Example:
-  //   $('form').submit(function() {
-  //     $(this).ajax({ success: function() { alert('yeeha!' )} })
-  //   })
-  // Via https://github.com/cosmic/cosmic-js/blob/master/cosmic.jquery.js
-  $.fn.ajax = function(options) {
-    return $(this).each(function() {
-      var defaultOptions = {
-        type: $(this).attr('method'),
-        url: $(this).attr('action'),
-        data: $(this).serialize(),
-      }
-      return $.ajax($.extend(defaultOptions, options))
-    })
-  }
-
   // Indent using the tab key
   // Via http://stackoverflow.com/a/6140696
   $.fn.tabify = function() {
@@ -195,7 +178,12 @@
   Edith.prototype.save = function() {
     var that = this
     this.saving = true
-    this.form.ajax({
+    var text = this.textarea.val()
+
+    $.ajax({
+      type: (text === "" ? "delete" : "put"),
+      url: this.form.attr('action'),
+      data: { text: text },
       success: function() { that.onSave() },
       error: function() { that.onSaveError() }
     })
