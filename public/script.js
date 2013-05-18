@@ -29,10 +29,17 @@ $(function() {
     if (e.ctrlKey && String.fromCharCode(e.keyCode) == "E") {
       var href = window.location.href + '.html'
       href = href.replace(/\/.html$/, '/index.html')
-      window.location = href
+      redirect(href)
     }
   })
 
+  // Redirect after all changes have been saved
+  function redirect(url) {
+    if (text.data('change'))
+      setTimeout(function() { redirect(url) }, 100)
+    else
+      window.location = url
+  }
 })
 
 // Replace the current favicon with the element's text, using paperImage
