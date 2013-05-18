@@ -111,28 +111,6 @@ function confirmClose(callback) {
   }
 }
 
-// Call a callback if the given event name has occured since the given seconds
-// Example:
-//   $('input').onInterval(5, 'keyup', function() {
-//     alert('you did a keyup in that field in the last 5 seconds')
-//   })
-$.fn.onInterval = function(seconds, bind, callback) {
-  return this.each(function() {
-    var self = this,
-        change = false
-
-    $(self).on(bind, function() {
-      change = true
-    })
-    setInterval(function() {
-      if (change) {
-        callback.call(self)
-        change = false
-      }
-    }, seconds * 1000)
-  })
-}
-
 
 // Send ajax requests to the same url, method and data as a <form>
 // Example:
