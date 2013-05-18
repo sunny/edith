@@ -25,7 +25,7 @@ class Page {
     return is_file($this->filepath());
   }
 
-  function load() {	
+  function load() {
     $this->text = 'Edit me!';
     if ($this->exists())
       $this->text = file_get_contents($this->filepath());
