@@ -86,8 +86,8 @@
     // Configure
     this.form = form
     this.textarea = form.find('textarea')
-    this.interval = 2e3
     this.changed = false
+    this.saving = false
     this.favicon('black')
 
     // Bind events
@@ -96,9 +96,6 @@
     this.textarea.tabify()
     $(window).confirmClose(function() { return that.onConfirmClose() })
     $(window).keydown(function(e) { that.onKeydown(e) })
-    $(document).ajaxComplete(function() { that.onAjaxComplete() })
-    $(document).ajaxError(function() { that.onAjaxError() })
-    setInterval(function() { that.onInterval() }, this.interval)
   }
 
   // Replace the current favicon with the element's text.
@@ -161,23 +158,13 @@
   //   this.redirect("/")
   Edith.prototype.redirect = function(url) {
     var that = this
-    if (this.changed)
+    if (this.saving)
       setTimeout(function() { that.redirect(url) }, 100)
     else
       window.location = url
   }
 
   /* Events */
-
-  Edith.prototype.onAjaxComplete = function() {
-    if (!this.changed)
-      this.favicon('black')
-  }
-
-  Edith.prototype.onAjaxError = function() {
-    if (!this.changed)
-      this.favicon('red')
-  }
 
   Edith.prototype.onKeydown = function(e) {
     if (e.ctrlKey && String.fromCharCode(e.keyCode) == "E") {
@@ -188,26 +175,51 @@
   }
 
   Edith.prototype.onConfirmClose = function() {
-    if (this.changed)
+    if (this.saving || this.changed)
       return "Your last modifications didn't get saved yet."
   }
 
   Edith.prototype.onChange = function() {
-    this.changed = true
     this.favicon('grey')
+    this.changed = true
+    this.checkForChange()
   }
 
-  Edith.prototype.onInterval = function() {
-    if (this.changed) {
-      this.form.ajax()
+  Edith.prototype.checkForChange = function() {
+    if (this.changed && !this.saving) {
       this.changed = false
+      this.save()
     }
+  }
+
+  Edith.prototype.save = function() {
+    console.log('save…')
+    var that = this
+    this.saving = true
+    this.form.ajax({
+      success: function() { that.onSave() },
+      error: function() { that.onSaveError() }
+    })
+  }
+
+  Edith.prototype.onSave = function() {
+    this.saving = false
+    this.checkForChange()
+    if (!this.saving)
+      this.favicon('black')
+  }
+
+  Edith.prototype.onSaveError = function() {
+    this.saving = false
+    this.checkForChange()
+    if (!this.saving)
+      this.favicon('red')
   }
 
 
   /* Launch */
 
-  new Edith($('form'))
+  new Edith($('#save'))
 
 
 })(document, window, jQuery);
