@@ -2,3 +2,4 @@ config.php
 .htaccess
 data/
 tmp/
+public/script.js
