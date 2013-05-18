@@ -193,7 +193,6 @@
   }
 
   Edith.prototype.save = function() {
-    console.log('save…')
     var that = this
     this.saving = true
     this.form.ajax({
