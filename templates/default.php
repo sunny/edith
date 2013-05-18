@@ -18,13 +18,17 @@ header('Content-type: text/html; charset="UTF-8"');
   </form>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="public/jquery.js"><\/script>')</script>
+
   <script src="<?php echo EDITH_URI ?>/public/script.js"></script>
 
 <?php if (mobwrite_enabled()) : ?>
   <script src="<?php echo h(MOBWRITE_URI) ?>/static/compressed_form.js"></script>
   <script>
-    mobwrite.syncGateway = '<?php echo h(MOBWRITE_URI) ?>/scripts/q.py'
-    mobwrite.share('text-<?php echo h(MOBWRITE_KEY) ?>-<?php echo h($page->name) ?>')
+    if (window.mobwrite) {
+      mobwrite.syncGateway = '<?php echo h(MOBWRITE_URI) ?>/scripts/q.py'
+      mobwrite.share('text-<?php echo h(MOBWRITE_KEY) ?>-<?php echo h($page->name) ?>')
+    }
   </script>
 <?php endif; ?>
 
