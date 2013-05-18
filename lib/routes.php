@@ -31,7 +31,7 @@ if ($representation != '') {
       require "templates/$representation.php";
       exit;
 
-    case 'POST': case 'PUT': case 'DELETE':
+    case 'POST': case 'PUT': case 'PATCH': case 'DELETE':
       header('HTTP/1.0 405 Method Not Allowed');
       header('Allow: GET, HEAD');
       exit;
@@ -73,7 +73,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
       $page->delete();
     exit;
 
-  case 'PUT': case 'POST':
+  case 'PUT': case 'POST': case 'PATCH':
     $page->text = request_var('text');
     try {
       $saved = $page->save();
