@@ -75,6 +75,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
   case 'PUT': case 'POST': case 'PATCH':
     $page->text = request_var('text');
+
     try {
       $saved = $page->save();
     } catch (Exception $e) {
@@ -88,6 +89,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
     if (!$page_exists)
       header('HTTP/1.0 201 Created');
+
     if ($_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest')
       exit('Saved successfully!');
     header('Location: ' . $_SERVER['HTTP_REFERER']);
@@ -95,7 +97,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
   default:
     header('HTTP/1.0 501 Not Implemented');
-    header('Allow: GET, HEAD');
+    header('Allow: GET, HEAD, PUT, DELETE');
     exit;
 
 }

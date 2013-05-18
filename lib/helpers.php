@@ -5,9 +5,10 @@ function h($string) {
 }
 
 function request_var($name) {
-  if (!isset($_REQUEST[$name]))
+  parse_str(file_get_contents("php://input"), $request_vars);
+  if (!isset($request_vars[$name]))
     return '';
-  return get_magic_quotes_gpc() ? stripslashes($_REQUEST[$name]) : $_REQUEST[$name];
+  return get_magic_quotes_gpc() ? stripslashes($request_vars[$name]) : $request_vars[$name];
 }
 
 function is_xhr() {
