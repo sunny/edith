@@ -12,14 +12,13 @@ exec = (name, args, callback) ->
 
 coffee = (script) ->
   exec 'coffee', ['--compile', "#{script}.coffee"], ->
-    ugly(script)
+    ugly("#{script}.js")
 
 ugly = (script) ->
-  js  = "#{script}.js"
   tmp = "#{script}.tmp"
   map = "#{script}.map"
-  exec 'uglifyjs', ["-c", "-o", tmp, "--source-map", map, js], ->
-    exec 'mv', [tmp, js]
+  exec 'uglifyjs', ["-c", "-o", tmp, "--source-map", map, script], ->
+    exec 'mv', [tmp, script]
 
 SCRIPTS = ['public/script', 'public/html']
 
@@ -32,4 +31,4 @@ task 'watch', 'Watch the CoffeeScript files for changes', ->
 
 task 'clean', 'Delete compiled js', ->
   for script in SCRIPTS
-    exec 'rm', ["-f", "#{script}.js", "#{script}.map"]
+    exec 'rm', ["-f", "#{script}.js", "#{script}.js.map"]
