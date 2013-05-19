@@ -16,8 +16,7 @@ coffee = (script) ->
 
 ugly = (script) ->
   tmp = "#{script}.tmp"
-  map = "#{script}.map"
-  exec 'uglifyjs', ["-c", "-o", tmp, "--source-map", map, script], ->
+  exec 'uglifyjs', ["-c", "-o", tmp, script], ->
     exec 'mv', [tmp, script]
 
 SCRIPTS = ['public/script', 'public/html']
@@ -25,10 +24,10 @@ SCRIPTS = ['public/script', 'public/html']
 task 'build', 'Compile the CoffeeScript into JavaScript', ->
   coffee(script) for script in SCRIPTS
 
-task 'watch', 'Watch the CoffeeScript files for changes', ->
+task 'watch', 'Watch the CoffeeScript files for changes, with source maps', ->
   coffee_scripts = ("#{script}.coffee" for script in SCRIPTS)
-  exec 'coffee', ['--compile', '--watch'].concat(coffee_scripts)
+  exec 'coffee', ['--compile', '--watch', '--map'].concat(coffee_scripts)
 
 task 'clean', 'Delete compiled js', ->
   for script in SCRIPTS
-    exec 'rm', ["-f", "#{script}.js", "#{script}.js.map"]
+    exec 'rm', ["-f", "#{script}.js", "#{script}.map"]
