@@ -15,11 +15,11 @@ coffee = (script) ->
     ugly(script)
 
 ugly = (script) ->
-  tmp = "#{script}.min.js"
-  map = "#{script}.map.js"
-  min = "#{script}.js"
-  exec 'uglifyjs', ["-c", "-o", tmp, "--source-map", map, min], ->
-    exec 'mv', [tmp, min]
+  js  = "#{script}.js"
+  tmp = "#{script}.tmp"
+  map = "#{script}.map"
+  exec 'uglifyjs', ["-c", "-o", tmp, "--source-map", map, js], ->
+    exec 'mv', [tmp, js]
 
 SCRIPTS = ['public/script', 'public/html']
 
@@ -32,4 +32,4 @@ task 'watch', 'Watch the CoffeeScript files for changes', ->
 
 task 'clean', 'Delete compiled js', ->
   for script in SCRIPTS
-    exec 'rm', ["#{script}.js", "#{script}.map.js"]
+    exec 'rm', ["-f", "#{script}.js", "#{script}.map"]
