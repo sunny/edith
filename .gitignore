@@ -3,4 +3,6 @@ config.php
 data/
 tmp/
 public/script.js
+public/script.map.js
 public/html.js
+public/html.map.js

@@ -30,13 +30,13 @@ Edith is also a RESTful API. So go ahead and try to `PUT` or `DELETE` on these U
 Install it yourself
 -------------------
 
-First, if you don't have it already, install Coffeescript to compile the JavaScript. Install [npm](http://nodejs.org/download/), then:
+First, you will need [Node](http://nodejs.org/download/) for the building process. Then, install CoffeeScript and and UglifyJS:
 
 ```sh
-$ npm install -g coffeescript
+$ npm install -g coffee-script uglify-js
 ```
 
-Get the files.
+Download the files. For example, using git:
 
 ```sh
 $ git clone https://github.com/sunny/edith.git
@@ -55,7 +55,7 @@ Tell your HTTP server to redirect pages not found to `index.php`. If you are usi
 $ cp htaccess.example .htaccess
 ```
 
-Compile the JavaScript.
+Compile the JavaScript, compress it and generate source maps.
 
 ```sh
 $ cake build
@@ -95,6 +95,10 @@ If you prefer `/page.js/txt` URLs instead of `/page.js.txt`, the config file has
 #### Rack
 
 If you would prefer to serve the app using Rack, a `config.ru` is created to use the `rack-legacy` and `rack-rewrite` gems.
+
+#### Tasks
+
+Run `$ cake` to see more tasks for development.
 
 
 Contributing
