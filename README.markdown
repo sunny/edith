@@ -3,7 +3,7 @@ Edith
 
 A quick small wiki, perfect for pasting quick texts or code between friends.
 
-Don't worry about saving, it saves every 2 seconds. Paste and forget! Think of it as a magic web notepad.
+Don't worry about saving, it saves at every key stroke. Paste and forget! Think of it as a magic web notepad.
 
 Try it out at [http://edit.sunfox.org/any-page-name](http://edit.sunfox.org/any-page-name).
 
@@ -20,7 +20,13 @@ Keyboard shortcut `cltr-e` switches from edit mode to HTML mode.
 
 ### Concurrent Access
 
-To enable multiple browsers to see live changes at the same time and hopefully not overwrite each other's stuff Edith uses [Google Mobwrite](http://code.google.com/p/google-mobwrite/).
+So that multiple users can see live changes at the same time and hopefully not overwrite each other's stuff Edith uses [Google Mobwrite](http://code.google.com/p/google-mobwrite/).
+
+### Favicon
+
+![Magic Favicon changing as the page updates](http://sunny.github.io/edith/favicon.gif)
+
+The favicon changes as the page updates and is also an indicator that the page is currently saving or not.
 
 ### REST
 
