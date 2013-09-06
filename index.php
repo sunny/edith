@@ -9,7 +9,7 @@
 @include 'config.php';
 require 'lib/helpers.php';
 require 'lib/page.class.php';
-require 'lib/markdown.php';
+require 'lib/markdown_extended.php';
 
 $REPRESENTATIONS = array('html', 'txt');
 
