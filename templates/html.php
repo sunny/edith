@@ -11,7 +11,7 @@ header('Content-type: text/html; charset="UTF-8"');
 </head>
 <body>
 
-<?php echo Markdown($page->text); ?>
+<?php echo MarkdownExtended($page->text); ?>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="public/jquery.js"><\/script>')</script>
