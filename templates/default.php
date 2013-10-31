@@ -6,6 +6,7 @@ header('Content-type: text/html; charset="UTF-8"');
 <head>
   <meta charset="utf-8">
   <title><?php echo h($page->name()); ?></title>
+	<meta content="width=device-width" name="viewport" />
   <link rel="shortcut icon" href="<?php echo EDITH_URI ?>/public/icon.png" />
   <link rel="stylesheet" href="<?php echo EDITH_URI ?>/public/style.css" />
 </head>
