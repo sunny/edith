@@ -36,12 +36,6 @@ Edith is also a RESTful API. So go ahead and try to `PUT` or `DELETE` on these U
 Install it yourself
 -------------------
 
-First, you will need [Node](http://nodejs.org/download/) for the building process. Then, install CoffeeScript and and UglifyJS:
-
-```sh
-$ npm install -g coffee-script uglify-js
-```
-
 Download the files. For example, using git:
 
 ```sh
@@ -49,7 +43,7 @@ $ git clone https://github.com/sunny/edith.git
 $ cd edith
 ```
 
-Make the `data` directory writeable.
+Make the `data` directory writeable:
 
 ```sh
 $ chmod a+w data
@@ -61,7 +55,13 @@ Tell your HTTP server to redirect pages not found to `index.php`. If you are usi
 $ cp htaccess.example .htaccess
 ```
 
-Compile the JavaScript, compress it and generate source maps.
+Finally, you will need [Node](http://nodejs.org/download/) to build the JavaScript. Install CoffeeScript and UglifyJS:
+
+```sh
+$ npm install -g coffee-script uglify-js
+```
+
+You can now compile, compress and generate source maps for the JavaScript:
 
 ```sh
 $ cake build
