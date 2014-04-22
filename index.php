@@ -8,7 +8,9 @@
  */
 @include 'config.php';
 require 'lib/helpers.php';
-require 'lib/page.class.php';
+require 'lib/edith/page.class.php';
+require 'lib/edith/request.class.php';
+require 'lib/edith/router.class.php';
 require 'lib/markdown_extended.php';
 
 $REPRESENTATIONS = array('html', 'txt');

@@ -7,7 +7,7 @@ class Page {
   }
 
   function filepath() {
-    $path = dirname(__FILE__) . '/../' . EDITH_DATA_PATH;
+    $path = dirname(__FILE__) . '/../../' . EDITH_DATA_PATH;
     $name = str_replace('.', '_', $this->name) . EDITH_DATA_EXTENSION;
     return $path . '/' . $name;
   }
