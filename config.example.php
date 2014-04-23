@@ -16,6 +16,9 @@ define('EDITH_URI', '');
 # define('URI_REGEX', '#^/?([^/]+?)(?:/(.+))?/?$#');
 
 
+// Extension of files living in the data directory
+# define('EDITH_DATA_EXTENSION', '.txt');
+
 /*
  * To handle concurrent access, you can enable Google Mobwrite by using the lines below.
  *  Read more about Google Mobwrite: http://code.google.com/p/google-mobwrite/

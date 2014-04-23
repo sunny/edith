@@ -19,6 +19,9 @@ if (!defined('EDITH_URI'))
 if (!defined('EDITH_DATA_PATH'))
   define('EDITH_DATA_PATH', 'data');
 
+if (!defined('EDITH_DATA_EXTENSION'))
+  define('EDITH_DATA_EXTENSION', '.txt');
+
 if (!defined('URI_REGEX'))
   define('URI_REGEX', '#^/?([^/]+?)\.?('.implode('|', $REPRESENTATIONS).')?$#');
 
