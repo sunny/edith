@@ -14,6 +14,7 @@ Usage
 - `/any-page-name`: type what you want, it's saved automagically!
 - `/any-page-name.txt`: raw text version.
 - `/any-page-name.html`: HTML version through the [Markdown](http://daringfireball.net/projects/markdown/) syntax.
+- `/any-page-name.remark`: Slideshow version using [Remark](https://github.com/gnab/remark).
 
 Keyboard shortcut `cltr-e` switches from edit mode to HTML mode.
 
