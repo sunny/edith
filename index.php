@@ -6,12 +6,13 @@
  *   /{pagename}
  *   /{pagename}.{representation}
  */
+
 @include 'config.php';
 require 'lib/helpers.php';
 require 'lib/page.class.php';
 require 'lib/markdown_extended.php';
 
-$REPRESENTATIONS = array('html', 'txt');
+$REPRESENTATIONS = array('html', 'txt', 'remark');
 
 if (!defined('EDITH_URI'))
   define('EDITH_URI', '');
