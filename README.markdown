@@ -61,7 +61,7 @@ Finally, you will need [Node](http://nodejs.org/download/) to build the JavaScri
 $ npm install -g coffee-script uglify-js
 ```
 
-You can now compile, compress and generate source maps for the JavaScript:
+You can now compile, compress and generate JavaScript source maps:
 
 ```sh
 $ cake build
@@ -98,13 +98,15 @@ You may use any file name you like as long as it doesn't end like a representati
 
 If you prefer `/page.js/txt` URLs instead of `/page.js.txt`, the config file has a setting for you.
 
-#### Rack
+#### Development
 
-If you would prefer to serve the app using Rack, a `config.ru` is created to use the `rack-legacy` and `rack-rewrite` gems.
+You can use PHP's built-in server in development if you don't want to use Apache:
 
-#### Tasks
+```sh
+$ php -S localhost:3000 index.php
+```
 
-Run `$ cake` to see more tasks for development.
+Or if you would prefer to serve the app using Rack, a `config.ru` is created, using the `rack-legacy` and `rack-rewrite` gems.
 
 
 Contributing

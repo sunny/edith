@@ -31,4 +31,7 @@ if (!defined('MOBWRITE_KEY'))
 if (!defined('MOBWRITE_URI'))
   define('MOBWRITE_URI', null);
 
+if (file_exists(preg_replace('#^\/#', '', $_SERVER["REQUEST_URI"])))
+  return false;
+
 require 'lib/routes.php';
