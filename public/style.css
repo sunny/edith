@@ -1,4 +1,5 @@
 html, body {
+  background: white;
   height: 100%;
   overflow: hidden;
   margin: 0;
@@ -11,6 +12,7 @@ form {
 
 textarea {
   font: 1.1em Monaco, Menlo, 'Ubuntu Mono', Inconsolata, Consolas, source-code-pro, "Deja Vu Sans Mono", "Droid Sans Mono", "Andale Mono", monospace;
+  background: white;
   border: 0;
   padding: 1em 0 0 1em;
   width: 100%;
