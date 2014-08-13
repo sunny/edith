@@ -16,7 +16,7 @@ if ($representation != '') {
 
   if (!$page_exists) {
     header('HTTP/1.0 404 Not Found');
-    die("404 Not Found: $page->name");
+    die("Page not found: <a href=".EDITH_URI."/".$page->name.">Create me!</a>");
   }
 
   if (!in_array($representation, $REPRESENTATIONS)) {
