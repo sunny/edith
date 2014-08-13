@@ -16,7 +16,10 @@ textarea {
   border: 0;
   padding: 1em 0 0 1em;
   width: 100%;
+  width: calc(100% - 1em);
   height: 100%;
+  height: calc(100% - 1em);
+  resize: none;
   -moz-box-sizing: border-box;
   box-sizing: content-box;
   overflow: auto;
