@@ -98,7 +98,6 @@ tr:nth-child(2n) {
 th, td {
   border: 1px solid #ddd;
   padding: .6em;
-  text-align: left;
 }
 
 /* Links */
