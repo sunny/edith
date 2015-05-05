@@ -20,7 +20,7 @@ class Page {
   }
 
   function has_safe_name() {
-    return preg_match("/^[a-z0-9-._ 🍺]+$/i", $this->name);
+    return preg_match("/^[a-z0-9-._%]+$/i", $this->name);
   }
 
   function exists() {
