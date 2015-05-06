@@ -15,6 +15,7 @@ Usage
 - `/any-page-name.txt`: raw text version.
 - `/any-page-name.html`: HTML version through the [Markdown](http://daringfireball.net/projects/markdown/) syntax.
 - `/any-page-name.remark`: Slideshow version using [Remark](https://github.com/gnab/remark).
+- `/any-page-name.graphviz`: Graph version of the dot syntax using [Viz](https://github.com/mdaines/viz.js/), see [WebGraphViz](http://www.webgraphviz.com/) for examples.
 
 Keyboard shortcut `cltr-e` switches from edit mode to HTML mode.
 

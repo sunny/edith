@@ -12,7 +12,7 @@ require 'lib/helpers.php';
 require 'lib/page.class.php';
 require 'lib/markdown_extended.php';
 
-$REPRESENTATIONS = array('html', 'txt', 'remark');
+$REPRESENTATIONS = array('html', 'txt', 'remark', 'graphviz');
 
 if (!defined('EDITH_URI'))
   define('EDITH_URI', '');
