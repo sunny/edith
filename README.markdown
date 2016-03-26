@@ -1,9 +1,9 @@
 Edith
 =====
 
-A quick small wiki, perfect for pasting quick texts or code between friends.
+A quick small wiki, perfect for pasting quick texts or code and sharing it between friends.
 
-Don't worry about saving, it saves at every key stroke. Paste and forget! Think of it as a magic web notepad.
+Don't worry about saving, it saves at every key stroke. Think of it as a magic zero-UI Web notepad.
 
 Try it out at [http://edit.sunfox.org/any-page-name](http://edit.sunfox.org/any-page-name).
 
