@@ -2,6 +2,8 @@ config.php
 .htaccess
 data/
 tmp/
+public/encrypted.js
+public/encrypted.map
 public/script.js
 public/script.map
 public/html.js

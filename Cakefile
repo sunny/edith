@@ -1,3 +1,9 @@
+SCRIPTS = [
+  'public/encrypted',
+  'public/script',
+  'public/html',
+]
+
 {print} = require 'sys'
 {spawn} = require 'child_process'
 
@@ -18,8 +24,6 @@ ugly = (script) ->
   tmp = "#{script}.tmp"
   exec 'uglifyjs', ["-c", "-o", tmp, script], ->
     exec 'mv', [tmp, script]
-
-SCRIPTS = ['public/script', 'public/html']
 
 task 'build', 'Compile the CoffeeScript into JavaScript', ->
   coffee(script) for script in SCRIPTS
