@@ -19,11 +19,6 @@ Usage
 
 Keyboard shortcut `cltr-e` switches from edit mode to HTML mode.
 
-
-### Concurrent Access
-
-So that multiple users can see live changes at the same time and hopefully not overwrite each other's stuff Edith uses [Google Mobwrite](http://code.google.com/p/google-mobwrite/).
-
 ### Favicon
 
 ![Magic Favicon changing as the page updates](http://sunny.github.io/edith/favicon.gif)
@@ -80,7 +75,7 @@ Copy `config.example.php` to `config.php` and read the examples to use your own 
 
 #### Concurrent Access
 
-You can activate Google Mobwrite and define your own endpoint in `config.php`.
+Multiple users can see live changes at the same time and not overwrite each other's stuff. For that you must first install[Google Mobwrite](http://code.google.com/p/google-mobwrite/) and define your endpoint in `config.php`.
 
 #### Read-only pages
 
@@ -90,9 +85,9 @@ To make pages read-only, just make them non-writeable on disk:
 $ chmod -w data/foo.txt
 ```
 
-They will then be shown using the HTML representation through Markdown instead.
+They will then be shown using the HTML representation through Markdown instead. This is what is used on [edit.sunfox.org](http://edit.sunfox.org/)'s homepage.
 
-Also, if you make the `data` directory itself non-writeable you can deactivate the creation of new pages.
+To deactivate the creation of new pages, simply make the  `data` directory itself non-writeable.
 
 #### URLs
 
@@ -102,7 +97,7 @@ If you prefer `/page.js/txt` URLs instead of `/page.js.txt`, the config file has
 
 #### Development
 
-You can use PHP's built-in server in development if you don't want to use Apache:
+You can use PHP's built-in server in development:
 
 ```sh
 $ php -S localhost:3000 index.php
