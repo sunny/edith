@@ -75,7 +75,10 @@ Copy `config.example.php` to `config.php` and read the examples to use your own 
 
 #### Concurrent Access
 
-Multiple users can see live changes at the same time and not overwrite each other's stuff. For that you must first install[Google Mobwrite](http://code.google.com/p/google-mobwrite/) and define your endpoint in `config.php`.
+Multiple users can see live changes at the same time and not overwrite each other's
+text. For that you must first install
+[Google Mobwrite](http://code.google.com/p/google-mobwrite/) on a server
+and define your endpoint in `config.php`.
 
 #### Read-only pages
 
