@@ -21,12 +21,11 @@ define('EDITH_URI', '');
 
 /*
  * To handle concurrent access, you can enable Google Mobwrite by using the lines below.
- *  Read more about Google Mobwrite: http://code.google.com/p/google-mobwrite/
+ *  Read more about Google Mobwrite: https://code.google.com/archive/p/google-mobwrite/
  */
 
 // Choose a unique identifier for your application so that Mobwrite can identify all your pages.
 # define('MOBWRITE_KEY', 'edith');
 
 // Mobwrite URL
-# define('MOBWRITE_URI', 'http://edith-mobwrite.appspot.com');
-
+# define('MOBWRITE_URI', 'https://edith-mobwrite.appspot.com');

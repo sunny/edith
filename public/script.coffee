@@ -2,7 +2,7 @@
 # ---------------
 
 # Indent using the tab key
-# Via http://stackoverflow.com/a/6140696
+# Via https://stackoverflow.com/a/6140696/311657
 $.fn.tabify = ->
   @keydown (e) ->
     # tab was pressed
@@ -24,7 +24,7 @@ $.fn.tabify = ->
     e.preventDefault()
 
 # Conditionnally ask for confirmation before closing the window
-# Via http://stackoverflow.com/a/2923258/311657
+# Via https://stackoverflow.com/a/2923258/311657
 # Takes a callback that returns the message to show or nothing.
 # Example:
 #   $(window).confirmClose(function(event) {
