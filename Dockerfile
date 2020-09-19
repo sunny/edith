@@ -11,7 +11,6 @@ COPY docker_files/errors /errors
 COPY index.php /app/index.php
 COPY Cakefile /app/Cakefile
 COPY htaccess.example /app/.htaccess
-RUN sed -i'' -e 's/RewriteBase \/edith\//RewriteBase \//' .htaccess
 COPY lib /app/lib
 COPY public /app/public
 COPY templates /app/templates

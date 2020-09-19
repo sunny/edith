@@ -1,5 +1,5 @@
 RewriteEngine on
-RewriteBase /edith/
+RewriteBase /
 RewriteRule ^index\.php $0 [L]
 RewriteRule ^public/.*$ $0 [L]
 RewriteRule ^.*$ index.php [L]
