@@ -37,6 +37,8 @@ URLs.
 Install it yourself
 -------------------
 
+Manual way:
+
 Download the files. For example, using git:
 
 ```sh
@@ -69,6 +71,22 @@ You can now compile, compress and generate JavaScript source maps:
 ```sh
 $ cake build
 ```
+
+Docker way:
+
+Build the image:
+
+```sh
+$ docker build . -t edith
+```
+
+Run it!
+
+```sh
+$ docker run --rm -p 8888:80 edith
+```
+
+Now you can access Edith from http://localhost:8888/
 
 ### Further use
 
