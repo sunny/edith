@@ -101,4 +101,3 @@ switch ($_SERVER['REQUEST_METHOD']) {
     exit;
 
 }
-

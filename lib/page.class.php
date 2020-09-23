@@ -60,4 +60,3 @@ class Page {
     return is_writeable($this->exists() ? $this->filepath() : dirname($this->filepath()));
   }
 }
-
