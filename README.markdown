@@ -59,17 +59,13 @@ If you are using Apache:
 $ cp htaccess.example .htaccess
 ```
 
-Finally, you will need [Node](https://nodejs.org/) to build the JavaScript.
-Install CoffeeScript and UglifyJS:
+If you are using nginx, you can add a directive to your nginx configuration:
 
-```sh
-$ npm install -g coffee-script uglify-js
 ```
-
-You can now compile, compress and generate JavaScript source maps:
-
-```sh
-$ cake build
+try_files $uri $uri/ @rewrites;
+location @rewrites {
+  rewrite ^ /index.php last;
+}
 ```
 
 Docker way:
