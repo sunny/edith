@@ -1,22 +1,3 @@
-// Indent using the tab key
-// Via https://stackoverflow.com/a/6140696/311657
-const tabToIndentInputListener = e => {
-  if (e.key != "Tab" || e.ctrlKey || e.shiftKey) return
-
-  e.preventDefault()
-
-  // get caret position/selection
-  const start = this.selectionStart
-  const end = this.selectionEnd
-  const value = this.value
-
-  // set textarea value to: text before caret + tab + text after caret
-  this.value = `${value.substring(0, start)}\t${value.substring(end)}`
-
-  // put caret at right position again (add one for the tab)
-  this.selectionStart = this.selectionEnd = start + 1
-}
-
 // Conditionnally ask for confirmation before closing the window
 // Via https://stackoverflow.com/a/2923258/311657
 // Takes a callback that returns the message to show or nothing.
@@ -70,7 +51,6 @@ class EdithForm {
 
     this.textarea.addEventListener("input", this.onChange);
     window.addEventListener("keydown", this.onKeydown);
-    this.textarea.addEventListener("keyup", tabToIndentInputListener);
     onConfirmClose(this.onConfirmClose);
 
     this.updateFavicon("black");
