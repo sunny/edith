@@ -29,8 +29,6 @@ function mobwrite_enabled() {
 function request_uri() {
   // Request URI from server
   $request_uri = $_SERVER['REQUEST_URI'];
-  if (isset($_SERVER['RACK_REQUEST_URI']))
-    $request_uri = $_SERVER['RACK_REQUEST_URI'];
 
   // Remove edith's directory
   $dir = dirname($_SERVER['PHP_SELF']);
