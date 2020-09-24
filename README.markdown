@@ -37,42 +37,14 @@ URLs.
 Install it yourself
 -------------------
 
-Manual way:
-
-Download the files. For example, using git:
+Clone it locally:
 
 ```sh
 $ git clone https://github.com/sunny/edith.git
 $ cd edith
 ```
 
-Make the `data` directory writeable:
-
-```sh
-$ chmod a+w data
-```
-
-Tell your HTTP server to redirect pages not found to `index.php`.
-If you are using Apache:
-
-```sh
-$ cp htaccess.example .htaccess
-```
-
-Finally, you will need [Node](https://nodejs.org/) to build the JavaScript.
-Install CoffeeScript and UglifyJS:
-
-```sh
-$ npm install -g coffee-script uglify-js
-```
-
-You can now compile, compress and generate JavaScript source maps:
-
-```sh
-$ cake build
-```
-
-Docker way:
+### Using Docker
 
 Build the image:
 
@@ -80,13 +52,49 @@ Build the image:
 $ docker build . -t edith
 ```
 
-Run it!
+Run it:
 
 ```sh
 $ docker run --rm -p 8888:80 edith
 ```
 
 Now you can access Edith from http://localhost:8888/
+
+### Using a local web server
+
+Make the `data` directory writable:
+
+```sh
+$ chmod a+w data
+```
+
+Run it with a web server that interprents PHP and points all 404s
+to `index.php`:
+
+- PHP's built-in server for development:
+
+  ```sh
+  $ php -S localhost:8888 index.php
+  ```
+
+- Apache:
+
+  You can use the example htaccess.
+
+  ```sh
+  $ cp htaccess.example .htaccess
+  ```
+
+- nginx:
+
+  Add the following directive to your nginx configuration:
+
+  ```
+  try_files $uri $uri/ @rewrites;
+  location @rewrites {
+    rewrite ^ /index.php last;
+  }
+  ```
 
 ### Further use
 
@@ -106,7 +114,7 @@ server and define your endpoint in `config.php`.
 
 #### Read-only pages
 
-To make pages read-only, just make them non-writeable on disk:
+To make pages read-only, just make them non-writable on disk:
 
 ```sh
 $ chmod -w data/foo.txt
@@ -115,8 +123,8 @@ $ chmod -w data/foo.txt
 They will then be shown using the HTML representation through Markdown instead.
 This is what is used on [edit.sunfox.org](https://edit.sunfox.org/)'s homepage.
 
-To deactivate the creation of new pages, simply make the  `data` directory
-itself non-writeable.
+To deactivate the creation of new pages, make the `data` directory itself
+non-writable.
 
 #### URLs
 
@@ -126,22 +134,11 @@ representation (`.txt` or `.html`).
 If you prefer `/page.js/txt` URLs instead of `/page.js.txt`, the config file
 has a setting for you.
 
-#### Development
-
-You can use PHP's built-in server in development:
-
-```sh
-$ php -S localhost:3000 index.php
-```
-
-Or if you would prefer to serve the app using Rack, a `config.ru` is created,
-using the `rack-legacy` and `rack-rewrite` gems.
-
 Contributing
 ------------
 
 You are welcome to contribute by adding issues and
-[forking the code on Github](https://github.com/sunny/edith).
+[forking the code on GitHub](https://github.com/sunny/edith).
 
 Licence
 -------

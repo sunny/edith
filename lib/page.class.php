@@ -56,8 +56,11 @@ class Page {
     return unlink($this->filepath());
   }
 
-  function is_writeable() {
-    return is_writeable($this->exists() ? $this->filepath() : dirname($this->filepath()));
+  function is_writable() {
+    if ($this->exists()) {
+      return is_writable($this->filepath());
+    } else {
+      return is_writable(dirname($this->filepath()));
+    }
   }
 }
-

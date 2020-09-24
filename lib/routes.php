@@ -57,7 +57,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
     $page->load();
     $template = 'default';
 
-    if (!$page->is_writeable())
+    if (!$page->is_writable())
       if ($page_exists)
         $template = 'html';
       else
@@ -101,4 +101,3 @@ switch ($_SERVER['REQUEST_METHOD']) {
     exit;
 
 }
-
