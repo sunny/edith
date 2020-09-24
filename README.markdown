@@ -62,7 +62,7 @@ Now you can access Edith from http://localhost:8888/
 
 ### Using a local web server
 
-Make the `data` directory writeable:
+Make the `data` directory writable:
 
 ```sh
 $ chmod a+w data
@@ -114,7 +114,7 @@ server and define your endpoint in `config.php`.
 
 #### Read-only pages
 
-To make pages read-only, just make them non-writeable on disk:
+To make pages read-only, just make them non-writable on disk:
 
 ```sh
 $ chmod -w data/foo.txt
@@ -124,7 +124,7 @@ They will then be shown using the HTML representation through Markdown instead.
 This is what is used on [edit.sunfox.org](https://edit.sunfox.org/)'s homepage.
 
 To deactivate the creation of new pages, make the `data` directory itself
-non-writeable.
+non-writable.
 
 #### URLs
 
