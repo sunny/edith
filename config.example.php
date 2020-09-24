@@ -8,7 +8,7 @@
 define('EDITH_URI', '');
 
 // Path to the folder where you want to save the txt files.
-// It needs to be readeable and writeable by the server.
+// It needs to be readable and writable by the server.
 # define('EDITH_DATA_PATH', 'data');
 
 // Regular Expression to distinguish between the page and the extension
