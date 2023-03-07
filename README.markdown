@@ -98,30 +98,20 @@ to `index.php`:
 
 ### Further use
 
-This section is only for ninjas and such.
-
 #### Configuration
 
 Copy `config.example.php` to `config.php` and read the examples to use your own
 configuration file.
 
-#### Concurrent Access
-
-Multiple users can see live changes at the same time and not overwrite each
-other's text. For that you must first install
-[Google Mobwrite](https://code.google.com/archive/p/google-mobwrite/) on a
-server and define your endpoint in `config.php`.
-
 #### Read-only pages
 
-To make pages read-only, just make them non-writable on disk:
+To make pages read-only, make them non-writable on disk:
 
 ```sh
 $ chmod -w data/foo.txt
 ```
 
 They will then be shown using the HTML representation through Markdown instead.
-This is what is used on [edit.sunfox.org](https://edit.sunfox.org/)'s homepage.
 
 To deactivate the creation of new pages, make the `data` directory itself
 non-writable.
