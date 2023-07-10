@@ -42,6 +42,14 @@ const faviconImage = (text, color) => {
   return canvas.toDataURL("image/png")
 }
 
+const replaceFavicon = (text, color) => {
+  const link = document.createElement("link");
+  link.rel = "icon";
+  link.href = faviconImage(text, color);
+  document.querySelector("link[rel~=icon]").remove();
+  document.head.appendChild(link);
+}
+
 class EdithForm {
   constructor() {
     this.form = document.getElementById("save");
@@ -58,11 +66,7 @@ class EdithForm {
 
   // Replace the current favicon with the element's text.
   updateFavicon(color) {
-    const link = document.createElement("link");
-    link.rel = "icon";
-    link.href = faviconImage(this.textarea.value, color);
-    document.querySelector("link[rel~=icon]").remove();
-    document.head.appendChild(link);
+    replaceFavicon(this.textarea.value, color);
   }
 
   // Redirect after all changes have been saved
