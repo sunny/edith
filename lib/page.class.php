@@ -29,20 +29,23 @@ class Page {
 
   function load() {
     $this->text = 'Edit me!';
-    if ($this->exists())
+    if ($this->exists()) {
       $this->text = file_get_contents($this->filepath());
+    }
   }
 
   function save() {
     if ($this->text == '') {
-      if ($this->exists())
+      if ($this->exists()) {
         $this->delete(); // delete empty files
+      }
       return;
     }
 
     $handle = @fopen($this->filepath(), 'w');
-    if (!$handle)
+    if (!$handle) {
       throw new Exception('Error opening the file in write mode');
+    }
 
     $this->text = str_replace("\r\n", "\n", $this->text); // CRLF to LF
 

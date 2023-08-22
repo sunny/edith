@@ -8,7 +8,9 @@ $page_exists = $page->exists();
 // Don't allow unsafe page names
 if (!$page->has_safe_name()) {
   header('HTTP/1.0 404 Not Found');
-  exit('The page name can only contain dashes, dots and alphanumerical characters.');
+  exit(
+    'The page name can only contain dashes, dots and alphanumerical characters.'
+  );
 }
 
 // /{pagename}.{representation}
@@ -25,30 +27,21 @@ if ($representation != '') {
   }
 
   switch ($_SERVER['REQUEST_METHOD']) {
-
     case 'GET': case 'HEAD':
       $page->load();
       require "templates/$representation.php";
       exit;
 
-    case 'POST': case 'PUT': case 'PATCH': case 'DELETE':
+    default:
       header('HTTP/1.0 405 Method Not Allowed');
       header('Allow: GET, HEAD');
       exit;
-
-    default:
-      header('HTTP/1.0 501 Not Implemented');
-      header('Allow: GET, HEAD');
-      exit;
-
   }
 }
 
 // /{pagename}
 
-
 switch ($_SERVER['REQUEST_METHOD']) {
-
   case 'GET': case 'HEAD':
     if (!$page_exists)
       header('HTTP/1.0 404 Not Found');
@@ -90,14 +83,15 @@ switch ($_SERVER['REQUEST_METHOD']) {
     if (!$page_exists)
       header('HTTP/1.0 201 Created');
 
-    if ($_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest')
+    if ($_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest') {
       exit('Saved successfully!');
+    }
+
     header('Location: ' . $_SERVER['HTTP_REFERER']);
     exit;
 
   default:
-    header('HTTP/1.0 501 Not Implemented');
+    header('HTTP/1.0 405 Method Not Allowed');
     header('Allow: GET, HEAD, PUT, DELETE');
     exit;
-
 }
