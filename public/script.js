@@ -56,7 +56,7 @@ class EdithForm {
     this.updateFavicon("black");
   }
 
-  // Replace the current favicon with the element's text.
+  // Replace the current favicon with the element’s text.
   updateFavicon(color) {
     const link = document.createElement("link");
     link.rel = "icon";

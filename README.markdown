@@ -1,16 +1,19 @@
 Edith
 =====
 
-A quick small wiki, perfect for pasting quick texts or code and sharing it between friends.
+A quick small wiki, perfect for pasting quick texts or code and sharing it
+between friends.
 
-Don't worry about saving, it saves at every key stroke. Think of it as a magic zero-UI Web notepad.
+Don’t worry about saving, it saves at every key stroke. Think of it as a magic
+zero-UI Web notepad.
 
-Try it out at [https://edit.sunfox.org/any-page-name](https://edit.sunfox.org/any-page-name).
+Try it out at
+[https://edit.sunfox.org/any-page-name](https://edit.sunfox.org/any-page-name).
 
 Usage
 -----
 
-- `/any-page-name`: type what you want, it's saved automagically!
+- `/any-page-name`: type what you want, it’s saved automagically!
 - `/any-page-name.txt`: raw text version.
 - `/any-page-name.html`: HTML version through the
   [Markdown](https://daringfireball.net/projects/markdown/) syntax.
@@ -24,7 +27,7 @@ Keyboard shortcut `cltr-e` switches from edit mode to HTML mode.
 
 ### Favicon
 
-![Magic Favicon changing as the page updates](https://sunny.github.io/edith/favicon.gif)
+![Animated screenshot of the Favicon changing as the page updates](https://sunny.github.io/edith/favicon.gif)
 
 The favicon changes as the page updates and is also an indicator that the page
 is currently saving or not.
@@ -68,10 +71,10 @@ Make the `data` directory writable:
 $ chmod a+w data
 ```
 
-Run it with a web server that interprents PHP and points all 404s
-to `index.php`:
+Run it with a web server that interprents PHP and points all 404s to
+`index.php`:
 
-- PHP's built-in server for development:
+- PHP’s built-in server for development:
 
   ```sh
   $ php -S localhost:8888 index.php
@@ -118,7 +121,7 @@ non-writable.
 
 #### URLs
 
-You may use any file name you like as long as it doesn't end like a
+You may use any file name you like as long as it doesn’t end like a
 representation (`.txt` or `.html`).
 
 If you prefer `/page.js/txt` URLs instead of `/page.js.txt`, the config file
