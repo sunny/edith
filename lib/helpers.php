@@ -10,9 +10,9 @@ function starts_with($hay, $needle) {
 
 function request_var($name) {
   parse_str(file_get_contents("php://input"), $request_vars);
-  if (!isset($request_vars[$name]))
-    return '';
-  return get_magic_quotes_gpc() ? stripslashes($request_vars[$name]) : $request_vars[$name];
+  if (!isset($request_vars[$name])) return '';
+
+  return $request_vars[$name];
 }
 
 function is_xhr() {
@@ -25,15 +25,16 @@ function mobwrite_enabled() {
     and MOBWRITE_URI and MOBWRITE_KEY;
 }
 
-// Current URI without Edith's directory
+// Current URI without Edith’s directory
 function request_uri() {
   // Request URI from server
   $request_uri = $_SERVER['REQUEST_URI'];
 
-  // Remove edith's directory
+  // Remove Edith’s directory
   $dir = dirname($_SERVER['PHP_SELF']);
-  if (starts_with($request_uri, $dir))
+  if (starts_with($request_uri, $dir)) {
     $request_uri = substr($request_uri, strlen($dir));
+  }
 
   return $request_uri;
 }

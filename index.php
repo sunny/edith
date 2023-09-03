@@ -10,7 +10,8 @@
 @include 'config.php';
 require 'lib/helpers.php';
 require 'lib/page.class.php';
-require 'lib/markdown_extended.php';
+
+require_once 'lib/Michelf/MarkdownExtra.inc.php';
 
 $REPRESENTATIONS = array('html', 'txt', 'remark', 'graphviz');
 

@@ -1,4 +1,5 @@
 <?php
+use Michelf\MarkdownExtra;
 header('Content-type: text/html; charset="UTF-8"');
 ?>
 <!DOCTYPE html>
@@ -12,7 +13,7 @@ header('Content-type: text/html; charset="UTF-8"');
 </head>
 <body>
 
-<?php echo MarkdownExtended($page->text); ?>
+<?php echo MarkdownExtra::defaultTransform($page->text); ?>
 
   <script src="<?php echo EDITH_URI ?>/public/html.js"></script>
 </body>
