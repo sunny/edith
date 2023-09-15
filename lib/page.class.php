@@ -30,6 +30,10 @@ class Page {
     return is_file($this->filepath());
   }
 
+  function has_been_edited() {
+    // This is meant to return a boolean based on routes.php
+  }
+
   function load() {
     $this->text = 'Edit me!';
     if ($this->exists()) {
