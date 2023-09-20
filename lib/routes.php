@@ -17,7 +17,7 @@ if (!$page->has_safe_name()) {
 if ($representation != '') {
   if (!$page_exists) {	  
     header('HTTP/1.0 404 Not Found');
-    $isChanged = false; // According to PR feedback, set a variable here, "isChanged"
+    $isChanged = false; // Addition based on PR #38 feedback, where the variable is meant to mark the text as unchanged
   }
 
   if (!in_array($representation, $REPRESENTATIONS)) {
