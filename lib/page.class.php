@@ -30,22 +30,10 @@ class Page {
     return is_file($this->filepath());
   }
 
-  function has_been_edited() {
-    // This is meant to return a boolean based on routes.php
-    // Possibly redundant if PR #38's solution can be housed in load() 
-  }
-
   function load() {
     $this->text = 'Edit me!';
     if ($this->exists()) {
       $this->text = file_get_contents($this->filepath());
-    }
-
-    // This condition is meant to check if the text has been changed based on a variable set in routes.php.
-    // It should replace the text on the page with 'Page not found' if no change has been made after conversion to HTML.
-    // An error, however, is that it always activates for some reason. Even when first starting the server. So the function is always true.
-    if (!($isChanged == true)) {
-      $this->text = 'Page not found';
     }
   }
 
