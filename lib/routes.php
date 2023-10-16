@@ -20,6 +20,7 @@ if ($representation != '') {
     
     // generate 404 response by utilizing my 404 page (html)
     include("404.php");
+    exit("Exit message: unable to find page");
   }
 
   if (!in_array($representation, $REPRESENTATIONS)) {
