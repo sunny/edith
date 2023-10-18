@@ -11,6 +11,6 @@
 	<script>window.jQuery || document.write('<script src="public/vendor/jquery.js"><\/script>')</script>
 	<script src="/public/html.js"></script>
 
-	<p>Error Message: <?php echo "Page not found"; ?></p>
+	<p>Page not found.</p>
 </body>
 </html>
