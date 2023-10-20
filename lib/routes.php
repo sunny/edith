@@ -15,12 +15,10 @@ if (!$page->has_safe_name()) {
 
 // /{pagename}.{representation}
 if ($representation != '') {
-  if (!$page_exists) {	  
+  if (!$page_exists) {
     header('HTTP/1.0 404 Not Found');
-    
-    // generate 404 response by utilizing my 404 page (html)
     include("404.php");
-    exit("Exit message: unable to find page");
+    exit();
   }
 
   if (!in_array($representation, $REPRESENTATIONS)) {
