@@ -17,7 +17,7 @@ if (!$page->has_safe_name()) {
 if ($representation != '') {
   if (!$page_exists) {
     header('HTTP/1.0 404 Not Found');
-    include("404.php");
+    include("templates/404.php");
     exit();
   }
 
