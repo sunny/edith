@@ -17,7 +17,8 @@ if (!$page->has_safe_name()) {
 if ($representation != '') {
   if (!$page_exists) {
     header('HTTP/1.0 404 Not Found');
-    die("Page not found: <a href=".EDITH_URI."/".$page->name.">Create me!</a>");
+    include("templates/404.php");
+    exit();
   }
 
   if (!in_array($representation, $REPRESENTATIONS)) {
