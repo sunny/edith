@@ -35,3 +35,15 @@ textarea:focus {
 input {
   display: none;
 }
+
+@media (prefers-color-scheme: dark) {
+  body{
+    background-color:#202020;
+    color:#eee  ;
+  }
+
+  textarea{
+    background-color:#202020;
+    color:#eee  ;
+  }
+}
