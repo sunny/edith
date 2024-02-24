@@ -2,6 +2,11 @@
 
 ## unreleased
 
+## v2.1.0
+
+Feature:
+- [Dark mode](https://github.com/sunny/edith/pull/40), by @ukuasoft.
+
 ## v2.0.1
 
 Fix:
