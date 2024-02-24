@@ -154,3 +154,9 @@ sub {
   bottom: -.25em;
 }
 
+@media (prefers-color-scheme: dark) {
+  body, textarea {
+    background-color: #202020;
+    color: #eee;
+  }
+}
