@@ -6,6 +6,9 @@ Feature:
 - New `EDITH_UNWRITEABLE_PAGES` configuration option to specify a list of
   pages that should not be editable.
 
+Fix:
+- Remove unused Google Mobwrite code, by @sunny.
+
 ## v2.1.0
 
 Feature:
@@ -19,4 +22,4 @@ Fix:
 
 ## v2.0.0
 
-First changelog entry.
+First changelog entry, by @sunny.

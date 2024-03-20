@@ -20,11 +20,6 @@ function is_xhr() {
     and $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest';
 }
 
-function mobwrite_enabled() {
-  return defined('MOBWRITE_URI') and defined('MOBWRITE_KEY')
-    and MOBWRITE_URI and MOBWRITE_KEY;
-}
-
 // Current URI without Edith’s directory
 function request_uri() {
   // Request URI from server
