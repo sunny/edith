@@ -21,9 +21,11 @@ if ($representation != '') {
     exit();
   }
 
-  if (!in_array($representation, $REPRESENTATIONS)) {
+  if (!in_array($representation, EDITH_REPRESENTATIONS)) {
     header('HTTP/1.0 404 Not Found');
-    die('Representation can only be one of: '.implode($REPRESENTATIONS, ', '));
+    die(
+      'Representation can only be one of: '.implode(EDITH_REPRESENTATIONS, ', ')
+    );
   }
 
   switch ($_SERVER['REQUEST_METHOD']) {

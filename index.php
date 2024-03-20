@@ -13,7 +13,7 @@ require 'lib/page.class.php';
 
 require_once 'lib/Michelf/MarkdownExtra.inc.php';
 
-$REPRESENTATIONS = array('html', 'txt', 'remark', 'graphviz');
+define('EDITH_REPRESENTATIONS', array('html', 'txt', 'remark', 'graphviz'));
 
 if (!defined('EDITH_URI'))
   define('EDITH_URI', '');
@@ -24,8 +24,14 @@ if (!defined('EDITH_DATA_PATH'))
 if (!defined('EDITH_DATA_EXTENSION'))
   define('EDITH_DATA_EXTENSION', '.txt');
 
+if (!defined('EDITH_UNWRITEABLE_PAGES'))
+  define('EDITH_UNWRITEABLE_PAGES', array());
+
 if (!defined('URI_REGEX'))
-  define('URI_REGEX', '#^/?([^/]+?)\.?('.implode('|', $REPRESENTATIONS).')?$#');
+  define(
+    'URI_REGEX',
+    '#^/?([^/]+?)\.?('.implode('|', EDITH_REPRESENTATIONS).')?$#'
+  );
 
 if (!defined('MOBWRITE_KEY'))
   define('MOBWRITE_KEY', 'edith');

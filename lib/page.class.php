@@ -64,7 +64,9 @@ class Page {
 
   function is_writable() {
     if ($this->exists()) {
-      return is_writable($this->filepath());
+      if (!is_writable($this->filepath())) return false;
+
+      return !in_array($this->name, EDITH_UNWRITEABLE_PAGES);
     } else {
       return is_writable(dirname($this->filepath()));
     }
