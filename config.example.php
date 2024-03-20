@@ -11,6 +11,9 @@ define('EDITH_URI', '');
 // It needs to be readable and writable by the server.
 # define('EDITH_DATA_PATH', 'data');
 
+// Array of page names that should not be modified.
+# define('EDITH_UNWRITEABLE_PAGES', array('index'));
+
 // Regular Expression to distinguish between the page and the extension
 // For example if you prefer `/page.js/txt` URIs instead of `/page.js.txt`, use the regexp below:
 # define('URI_REGEX', '#^/?([^/]+?)(?:/(.+))?/?$#');
