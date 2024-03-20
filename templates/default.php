@@ -18,8 +18,6 @@ header('Content-type: text/html; charset="UTF-8"');
     id="save"
   >
     <textarea
-      <?php if (mobwrite_enabled()) echo ' id="text-'.h(MOBWRITE_KEY).'-'.h($page->name).'"' ?>
-
       autofocus
       name="text"
       cols="42"
@@ -30,16 +28,5 @@ header('Content-type: text/html; charset="UTF-8"');
   </form>
 
   <script src="<?php echo EDITH_URI ?>/public/script.js"></script>
-
-<?php if (mobwrite_enabled()) : ?>
-  <script src="<?php echo h(MOBWRITE_URI) ?>/static/compressed_form.js"></script>
-  <script>
-    if (window.mobwrite) {
-      mobwrite.syncGateway = '<?php echo h(MOBWRITE_URI) ?>/scripts/q.py'
-      mobwrite.share('text-<?php echo h(MOBWRITE_KEY) ?>-<?php echo h($page->name) ?>')
-    }
-  </script>
-<?php endif; ?>
-
 </body>
 </html>

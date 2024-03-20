@@ -2,6 +2,9 @@
 
 ## unreleased
 
+Fix:
+- Remove unused Google Mobwrite code, by @sunny.
+
 ## v2.1.0
 
 Feature:
@@ -15,4 +18,4 @@ Fix:
 
 ## v2.0.0
 
-First changelog entry.
+First changelog entry, by @sunny.

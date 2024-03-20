@@ -27,12 +27,6 @@ if (!defined('EDITH_DATA_EXTENSION'))
 if (!defined('URI_REGEX'))
   define('URI_REGEX', '#^/?([^/]+?)\.?('.implode('|', $REPRESENTATIONS).')?$#');
 
-if (!defined('MOBWRITE_KEY'))
-  define('MOBWRITE_KEY', 'edith');
-
-if (!defined('MOBWRITE_URI'))
-  define('MOBWRITE_URI', null);
-
 if (file_exists(preg_replace('#^\/#', '', $_SERVER["REQUEST_URI"])))
   return false;
 
